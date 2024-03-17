@@ -1,16 +1,17 @@
+"use client"
 import React from 'react'
 import { FaGear } from "react-icons/fa6";
 import { FaBriefcaseMedical } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
-import Link from 'next/link';
+import DomainCards from '../molecules/DomainCards';
 
 
 
 const mockDomains = [
     {
         title: "Engineering",
-        link: "/eng",
+        link: "/engineering",
         icon: FaGear,
         bg: "#C8FACD",
         fg: "#005249",
@@ -18,7 +19,7 @@ const mockDomains = [
     },
     {
         title: "Medical",
-        link: "/med",
+        link: "/medical",
         icon: FaBriefcaseMedical,
         bg: "#D0F2FF",
         fg: "#0C53B7",
@@ -48,32 +49,24 @@ const mockDomains = [
 
 
     },
+
 ]
 
 
 
 const DashboardPage = () => {
+
     return (
         <section className='w-full flex flex-col gap-5'>
             <h2 className='text-[#3d4e61] font-bold text-3xl'>Domains</h2>
 
-            <div className='flex gap-10'>
+            <div className=' grid grid-cols-4 gap-10'>
                 {/* DOMAIN CARDS  */}
                 {mockDomains.map((items, index) => (
-                    <Link
+                    <DomainCards
                         key={index}
-                        href={items.link}
-                        style={{ backgroundColor: items.bg }}
-                        className={`flex gap-4 flex-col p-4 w-1/4 items-center justify-center h-64 rounded-lg drop-shadow-md hover:scale-105 transition-all ease-linear hover:drop-shadow-2xl`}
-                    >
-                        <div className={`w-24 h-24 flex items-center rounded-full justify-center  bg-gradient-to-r ${items.gradient}`}
-
-                        >
-                            <items.icon className={` text-3xl`} style={{ color: items.fg }} />
-                        </div>
-
-                        <h3 className={`text-lg text-[#005249] font-semibold`}>{items.title}</h3>
-                    </Link>
+                        items={items}
+                    />
                 ))}
             </div>
         </section>

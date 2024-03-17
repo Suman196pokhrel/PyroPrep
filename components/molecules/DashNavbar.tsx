@@ -4,6 +4,22 @@ import React from 'react'
 import { IoIosNotifications } from "react-icons/io";
 import { RxAvatar } from "react-icons/rx";
 
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+} from "@/components/atoms/dropdown"
+import { Button } from '../atoms/button';
+
 
 
 
@@ -53,8 +69,59 @@ const DashNavbar = () => {
 
             {/* RIGHT  */}
             <div className='flex items-center gap-5 text-2xl font-bold text-[#237e54]'>
-                <IoIosNotifications className=' cursor-pointer' />
-                <RxAvatar />
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <IoIosNotifications className=' cursor-pointer' />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56 ">
+                        <DropdownMenuLabel>Notifications</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuGroup>
+                            {/* <DropdownMenuItem>
+                                Profile
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                Billing
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                Settings
+                            </DropdownMenuItem> */}
+                        </DropdownMenuGroup>
+                        <DropdownMenuSeparator />
+
+
+                    </DropdownMenuContent>
+                </DropdownMenu>
+                <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                        <RxAvatar className=' cursor-pointer' />
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56 ">
+                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuGroup>
+                            <DropdownMenuItem>
+                                Profile
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                Billing
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                Settings
+                            </DropdownMenuItem>
+                        </DropdownMenuGroup>
+                        <DropdownMenuSeparator />
+
+                        <DropdownMenuItem>GitHub</DropdownMenuItem>
+                        <DropdownMenuItem>Support</DropdownMenuItem>
+                        <DropdownMenuItem disabled>API</DropdownMenuItem>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuItem>
+                            Log out
+                            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                        </DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
             </div>
 
         </nav>
