@@ -2,7 +2,13 @@ import React from 'react'
 
 const DashboardPage = () => {
     return (
-        <div>DashboardPage</div>
+        <section className='w-full flex flex-col gap-5'>
+            <h2 className='text-[#3d4e61] font-bold text-3xl'>Domains</h2>
+
+            <div>
+                {/* DOMAIN CARDS  */}
+            </div>
+        </section>
     )
 }
 
