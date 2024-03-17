@@ -4,7 +4,7 @@ import { Button } from '../atoms/button'
 
 const DashBanner = () => {
     return (
-        <div className=' bg-[#C8FACD] rounded-xl flex items-center justify-between p-4 w-3/4'>
+        <div className=' bg-[#C8FACD] rounded-xl flex items-center justify-between px-10 py-4 w-3/4'>
             {/* LEFT  */}
             <div className='w-1/2 flex flex-col items-start gap-5'>
                 <h2 className='text-[#3d4e61] font-bold text-3xl'>Welcome back Suman Pokhrel !</h2>

@@ -7,10 +7,6 @@ import Link from 'next/link';
 
 
 
-
-
-
-
 const mockDomains = [
     {
         title: "Engineering",
@@ -53,6 +49,7 @@ const mockDomains = [
 
     },
 ]
+
 
 
 const DashboardPage = () => {

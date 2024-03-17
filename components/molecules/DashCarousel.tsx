@@ -41,9 +41,9 @@ const DashCarousel = () => {
                 </CarouselContent>
 
 
-                <div className=' absolute bg-black top-0 h-[320px] w-[423px] rounded-xl bg-opacity-50'>
+                {/* <div className=' absolute bg-black top-0 h-[320px] w-[423px] rounded-xl bg-opacity-50'>
 
-                </div>
+                </div> */}
 
                 <CarouselPrevious />
                 <CarouselNext />

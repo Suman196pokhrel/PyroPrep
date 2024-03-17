@@ -52,7 +52,7 @@ const DashNavbar = () => {
 
 
             {/* RIGHT  */}
-            <div className='flex items-center gap-5 text-2xl font-bold text-[#324236]'>
+            <div className='flex items-center gap-5 text-2xl font-bold text-[#237e54]'>
                 <IoIosNotifications className=' cursor-pointer' />
                 <RxAvatar />
             </div>
