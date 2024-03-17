@@ -22,7 +22,7 @@ const DashCarousel = () => {
     return (
         <main className='w-1/4 rounded-xl'>
 
-            <Carousel className=''>
+            <Carousel className=' relative'>
 
                 <CarouselContent>
                     {carousalImages.map((item, index) => (
@@ -40,6 +40,10 @@ const DashCarousel = () => {
 
                 </CarouselContent>
 
+
+                <div className=' absolute bg-black top-0 h-[320px] w-[420px] rounded-xl bg-opacity-50'>
+
+                </div>
 
                 <CarouselPrevious />
                 <CarouselNext />
