@@ -35,7 +35,7 @@ const DashNavbar = () => {
             {/* LEFT  */}
             <div className='flex gap-10 items-center'>
                 <figure>
-                    <Image src={"/logo.png"} alt='' width={40} height={40} />
+                    <Image src={"/static/logo.png"} alt='' width={40} height={40} />
                 </figure>
 
                 {/* NAV ITEMS  */}
