@@ -1,3 +1,6 @@
+import DashBanner from '@/components/molecules/DashBanner'
+import DashCarousel from '@/components/molecules/DashCarousel'
+import DashNavbar from '@/components/molecules/DashNavbar'
 import React from 'react'
 
 type DashboardProps = {
@@ -10,18 +13,23 @@ const DashboardLayout = (
     }: DashboardProps
 ) => {
     return (
-        <main className='min-h-screen w-full'>
+        <main className='min-h-screen flex flex-col items-center'>
             {/* NAVBAR  */}
+            <DashNavbar />
 
+            <section className='flex flex-col items-center mt-10 gap-10 w-2/3 bg-red-600'>
 
+                {/* HERO SECTION  */}
+                <div className='flex'>
+                    <DashBanner />
+                    <DashCarousel />
 
-            {/* HERO SECTION  */}
+                </div>
 
+                {/* CONTENTS  */}
+                {children}
 
-
-            {/* CONTENTS  */}
-            {children}
-
+            </section>
 
         </main>
     )
