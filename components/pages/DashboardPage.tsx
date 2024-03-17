@@ -5,6 +5,8 @@ import { FaBriefcaseMedical } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import { FaPencil } from "react-icons/fa6";
 import DomainCards from '../molecules/DomainCards';
+import { motion } from 'framer-motion';
+
 
 
 
@@ -63,10 +65,17 @@ const DashboardPage = () => {
             <div className=' grid grid-cols-4 gap-10'>
                 {/* DOMAIN CARDS  */}
                 {mockDomains.map((items, index) => (
-                    <DomainCards
+                    <motion.div
                         key={index}
-                        items={items}
-                    />
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2, delay: index * 0.03 }}
+                    >
+                        <DomainCards
+                            key={index}
+                            items={items}
+                        />
+                    </motion.div>
                 ))}
             </div>
         </section>

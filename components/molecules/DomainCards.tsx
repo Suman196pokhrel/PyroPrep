@@ -24,7 +24,7 @@ const DomainCards = ({ items }: DomainCardProps) => {
         <div
             onClick={() => router.push(`/dashboard/${items.link}`)}
             style={{ backgroundColor: items.bg }}
-            className={`flex gap-4 flex-col p-4 w-full items-center justify-center h-64 rounded-lg drop-shadow-md hover:scale-105 transition-all ease-linear hover:drop-shadow-2xl`}
+            className={`flex gap-4 cursor-pointer flex-col p-4 w-full items-center justify-center h-64 rounded-lg drop-shadow-md hover:scale-105 transition-all ease-linear hover:drop-shadow-2xl`}
         >
             <div className={`w-24 h-24 flex items-center rounded-full justify-center  bg-gradient-to-r ${items.gradient}`}
 

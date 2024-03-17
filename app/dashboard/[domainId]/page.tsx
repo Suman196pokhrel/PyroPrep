@@ -1,6 +1,7 @@
+"use client"
 import SubDomainCards from '@/components/molecules/SubDomainCards'
 import React from 'react'
-
+import { motion } from 'framer-motion';
 
 
 const mockSubCategories = [
@@ -47,11 +48,17 @@ const DynamicDomainPage = ({ params }: { params: { domainId: string } }) => {
             <div className=' flex flex-wrap gap-10'>
                 {/* DOMAIN CARDS  */}
                 {mockSubCategories.map((items, index) => (
-                    <SubDomainCards
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2, delay: index * 0.03 }}
                         key={index}
-                        items={items}
+                    >
+                        <SubDomainCards
+                            items={items}
 
-                    />
+                        />
+                    </motion.div>
                 ))}
             </div>
         </main>
