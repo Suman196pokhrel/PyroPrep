@@ -5,6 +5,7 @@ import { IconType } from 'react-icons'
 import { MdOutlineComputer } from "react-icons/md";
 import { FaLayerGroup } from "react-icons/fa";
 import { FaRegCheckCircle } from "react-icons/fa";
+import Link from 'next/link';
 
 
 
@@ -17,14 +18,18 @@ type cardData = {
 
 }
 
+
+
 type DomainCardProps = {
     items: cardData
+    domainId: string
 }
 
 
-const SubDomainCards = ({ items }: DomainCardProps) => {
+const SubDomainCards = ({ items, domainId }: DomainCardProps) => {
+    const router = useRouter()
     return (
-        <div className='flex items-center  cursor-pointer border-2 rounded-md shadow-md hover:scale-105 hover:shadow-2xl transition-all ease-linear'>
+        <div onClick={() => router.push(`/dashboard/${domainId}/${items.title.slice(0, 3)}`)} className='flex items-center  cursor-pointer border-2 rounded-md shadow-md hover:scale-105 hover:shadow-2xl transition-all ease-linear'>
 
 
             {/* LEFT  */}

@@ -11,31 +11,33 @@ const mockSubCategories = [
         completed: 3,
     },
     {
-        title: "Computer Engineering",
-        totalQuizSets: 20,
-        completed: 3,
+        title: "Electrical Engineering",
+        totalQuizSets: 18,
+        completed: 6,
     },
     {
-        title: "Computer Engineering",
-        totalQuizSets: 20,
-        completed: 3,
+        title: "Mechanical Engineering",
+        totalQuizSets: 22,
+        completed: 9,
     },
     {
-        title: "Computer Engineering",
-        totalQuizSets: 20,
-        completed: 3,
+        title: "Civil Engineering",
+        totalQuizSets: 15,
+        completed: 5,
     },
     {
-        title: "Computer Engineering",
-        totalQuizSets: 20,
-        completed: 3,
+        title: "Chemical Engineering",
+        totalQuizSets: 25,
+        completed: 12,
     },
     {
-        title: "Computer Engineering",
+        title: "Aerospace Engineering",
         totalQuizSets: 20,
-        completed: 3,
-    },
-]
+        completed: 8,
+    }
+];
+
+
 
 
 const DynamicDomainPage = ({ params }: { params: { domainId: string } }) => {
@@ -43,7 +45,7 @@ const DynamicDomainPage = ({ params }: { params: { domainId: string } }) => {
 
     return (
         <main className='w-full flex flex-col gap-5'>
-            <h2 className='text-[#3d4e61] font-bold text-2xl'>{params.domainId.charAt(0).toUpperCase() + params.domainId.slice(1,)}</h2>
+            <h2 className='text-[#3d4e61] font-bold text-3xl'>{params.domainId.charAt(0).toUpperCase() + params.domainId.slice(1,)}</h2>
 
             <div className=' flex flex-wrap gap-10'>
                 {/* DOMAIN CARDS  */}
@@ -56,6 +58,7 @@ const DynamicDomainPage = ({ params }: { params: { domainId: string } }) => {
                     >
                         <SubDomainCards
                             items={items}
+                            domainId={params.domainId}
 
                         />
                     </motion.div>
