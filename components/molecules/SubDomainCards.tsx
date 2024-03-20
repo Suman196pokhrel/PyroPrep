@@ -1,11 +1,9 @@
 "use client"
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { IconType } from 'react-icons'
 import { MdOutlineComputer } from "react-icons/md";
 import { FaLayerGroup } from "react-icons/fa";
 import { FaRegCheckCircle } from "react-icons/fa";
-import Link from 'next/link';
 
 
 

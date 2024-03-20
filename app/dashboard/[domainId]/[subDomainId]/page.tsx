@@ -9,6 +9,7 @@ import { Label } from '@/components/atoms/label';
 
 const mockTestSets = [
     {
+        id: 1,
         title: "Set 1",
         details: {
             totalQuestions: 30,
@@ -18,6 +19,7 @@ const mockTestSets = [
         isFavourite: false
     },
     {
+        id: 2,
         title: "Set 2",
         details: {
             totalQuestions: 25,
@@ -27,6 +29,7 @@ const mockTestSets = [
         isFavourite: true
     },
     {
+        id: 3,
         title: "Set 3",
         details: {
             totalQuestions: 40,
@@ -36,6 +39,7 @@ const mockTestSets = [
         isFavourite: false
     },
     {
+        id: 4,
         title: "Set 4",
         details: {
             totalQuestions: 20,
@@ -45,6 +49,7 @@ const mockTestSets = [
         isFavourite: true
     },
     {
+        id: 5,
         title: "Set 5",
         details: {
             totalQuestions: 35,
@@ -58,6 +63,11 @@ const mockTestSets = [
 
 
 const SubDomainPage = ({ params }: { params: { subDomainId: string } }) => {
+
+
+
+
+
     return (
         <main className='w-full flex flex-col gap-5'>
             <h2 className='text-[#3d4e61] font-bold text-3xl'>Choose from test sets</h2>
@@ -78,6 +88,7 @@ const SubDomainPage = ({ params }: { params: { subDomainId: string } }) => {
 
                             <TestSetCard
                                 items={items}
+                                subDomainId={params.subDomainId}
                             />
                         </motion.div>
                     ))}
