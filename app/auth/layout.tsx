@@ -13,7 +13,7 @@ const AuthLayout = (
     }: AuthLayoutProps
 ) => {
     return (
-        <main className='flex border-2 border-red-600 min-h-screen justify-between p-10 gap-2 '>
+        <main className='flex min-h-screen justify-between p-10 gap-2 '>
             {/* LEFT  */}
             <section className=' w-2/6 bg-white rounded-xl drop-shadow-2xl flex flex-col items-center justify-center relative'>
                 <div className='absolute top-3 left-3'>
@@ -52,7 +52,7 @@ const AuthLayout = (
 
 
                 {/* CONTENT SECTION  */}
-                <div className='border-2 border-red-500 w-3/6 flex items-center justify-center'>
+                <div className='w-3/6 flex items-center justify-center'>
 
                     {children}
 
