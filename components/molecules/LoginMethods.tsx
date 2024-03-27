@@ -20,7 +20,7 @@ const loginOptions = [
 
 const LoginMethods = () => {
     return (
-        <section className='flex flex-col w-full mt-14 gap-10'>
+        <section className='flex flex-col w-full gap-10'>
             <div className='flex items-center gap-7'>
                 {loginOptions.map((item, index) => (
                     <div key={index} className='flex items-center justify-center py-4 border-2 drop-shadow-sm w-1/3 rounded-xl'>
