@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -5,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '../atoms/form'
 import { Input } from '../atoms/input'
 import { Button } from '../atoms/button'
+import { useRouter } from 'next/navigation'
 
 const formSchema = z.object({
     email: z.string().email('Invalid email format').min(1, 'Email is required'),
@@ -12,6 +14,8 @@ const formSchema = z.object({
 })
 
 const SigninForm = () => {
+
+    const router = useRouter()
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -23,6 +27,7 @@ const SigninForm = () => {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values)
+        router.push("/dashboard")
     }
 
 
