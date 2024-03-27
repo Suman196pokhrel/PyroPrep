@@ -85,7 +85,7 @@ const TestSetCard = ({ items, subDomainId }: TestSetCardProps) => {
             <ul className=' text-[#637381] w-full flex flex-col items-start justify-start'>
                 <li>Total questions : <span className=' font-semibold'>{items.details.totalQuestions}</span></li>
                 <li>Status : <span className=' font-semibold'>{items.details.status ? "Completed" : "Not Completed"}</span></li>
-                <li>Time : <span className=' font-semibold'>{items.details.totalTime}</span></li>
+                <li>Time : <span className=' font-semibold'>{items.details.totalTime} mins</span></li>
             </ul>
         </div>
 
