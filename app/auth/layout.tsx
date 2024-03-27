@@ -42,13 +42,22 @@ const AuthLayout = (
             </section>
 
             {/* RIGHT  */}
-            <section className=' w-4/6'>
+            <section className=' w-4/6 relative flex items-center justify-center'>
                 {/* top right link    */}
-                <div>
-                    <p>
-                        Don't have an account? <span>Get started</span>
+                <div className='absolute top-3 right-3 font-medium text-lg'>
+                    <p className='text-[#212B36] cursor-pointer'>
+                        Don't have an account? <span className=' text-green-600 hover:underline'>Get started</span>
                     </p>
                 </div>
+
+
+                {/* CONTENT SECTION  */}
+                <div className='border-2 border-red-500 w-3/6 flex items-center justify-center'>
+
+                    {children}
+
+                </div>
+
             </section>
             {/* {children} */}
         </main>
