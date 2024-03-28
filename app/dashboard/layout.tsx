@@ -1,4 +1,4 @@
-import DashBanner from '@/components/molecules/DashBanner'
+import DashBanner from '@/components/organisms/DashBanner'
 import DashCarousel from '@/components/molecules/DashCarousel'
 import DashNavbar from '@/components/molecules/DashNavbar'
 import React from 'react'
