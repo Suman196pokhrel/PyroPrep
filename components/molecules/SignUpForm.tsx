@@ -13,7 +13,14 @@ const formSchema = z.object({
     password: z.string().min(8, 'Password must be at least 8 characters long'),
     confirmPassword: z.string().min(8, 'Password must be at least 8 characters long')
 
-})
+}).refine((values) => {
+    return values.password === values.confirmPassword;
+},
+    {
+        message: "Passwords must match!",
+        path: ["confirmPassword"],
+    }
+);
 
 const SignUpForm = () => {
 
@@ -30,7 +37,7 @@ const SignUpForm = () => {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values)
-        router.push("/dashboard")
+        router.push("/auth/signin")
     }
 
 
@@ -75,7 +82,7 @@ const SignUpForm = () => {
                         </FormItem>
                     )}
                 />
-                <Button type='submit' className='bg-[#00AB55] text-2xl font-semibold w-full h-20'>Login</Button>
+                <Button type='submit' className='bg-[#00AB55] text-2xl font-semibold w-full h-20'>Create account</Button>
 
             </form>
 
