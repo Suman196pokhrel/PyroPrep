@@ -109,7 +109,7 @@ const AuthLayout = ({
                     )}
                 </div>
 
-                <motion.div className='w-5/6 lg:w-3/6 xl:2/6 flex items-center justify-center border-2 border-green-500'>{children}</motion.div>
+                <motion.div className='w-5/6 lg:w-3/6 xl:2/6 flex items-center justify-center '>{children}</motion.div>
 
             </section>
 
