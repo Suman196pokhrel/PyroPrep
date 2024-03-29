@@ -1,19 +1,26 @@
 import Image from 'next/image'
 import React from 'react'
 import { Separator } from '../atoms/separator'
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookF } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
 
 const loginOptions = [
     {
         title: "google",
-        icon: "/static/icons/ic_google.png",
+        icon: FcGoogle,
+        color: ""
     },
     {
         title: "facebook",
-        icon: "/static/icons/ic_facebook.png",
+        icon: FaFacebookF,
+        color: "text-blue-600"
     },
     {
         title: "twitter (x)",
-        icon: "/static/icons/ic_twitter.png",
+        icon: FaXTwitter,
+        color: "text-black"
     }
 ]
 
@@ -23,14 +30,8 @@ const LoginMethods = () => {
         <section className='flex flex-col w-full gap-10'>
             <div className='flex items-center gap-7'>
                 {loginOptions.map((item, index) => (
-                    <div key={index} className='flex items-center justify-center py-4 border-2 drop-shadow-sm w-1/3 rounded-xl hover:bg-gray-50 cursor-pointer hover:scale-105 transition-all ease-linear'>
-                        <Image
-                            src={item.icon}
-                            alt={item.title}
-                            width={40}
-                            height={40}
-                            className=''
-                        />
+                    <div key={index} className='flex items-center justify-center py-4 border-2 bg-white w-1/3 rounded-xl  cursor-pointer hover:drop-shadow-xl hover:scale-105 transition-all ease-linear'>
+                        <item.icon className={`text-2xl ${item.color}`} />
                     </div>
                 ))}
             </div>

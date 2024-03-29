@@ -44,14 +44,14 @@ const SignUpForm = () => {
     return (
         <Form {...form}>
 
-            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-5 w-full text-lg'>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-7 w-full text-lg'>
                 <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input className='h-20 text-xl' placeholder='Email' {...field} />
+                                <Input className='h-16 text-lg' placeholder='Email' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -63,7 +63,7 @@ const SignUpForm = () => {
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input className='h-20 text-xl' placeholder='password' type='password' {...field} />
+                                <Input className='h-16 text-lg' placeholder='password' type='password' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -76,13 +76,13 @@ const SignUpForm = () => {
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input className='h-20 text-xl' placeholder='confirm password' type='password' {...field} />
+                                <Input className='h-16 text-lg' placeholder='confirm password' type='password' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button type='submit' className='bg-[#00AB55] text-2xl font-semibold w-full h-20'>Create account</Button>
+                <Button type='submit' className='bg-green-600 text-xl  w-full h-16'>Create account</Button>
 
             </form>
 

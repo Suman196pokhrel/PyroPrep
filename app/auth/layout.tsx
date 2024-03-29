@@ -81,7 +81,7 @@ const AuthLayout = ({
                             <motion.figure key={currentPath} {...smoothSlideUp}>
                                 {conditionalData.bannerData.imageLink && (
                                     <Image
-                                        className='w-[700px]'
+                                        className='w-[500px]'
                                         src={conditionalData.bannerData.imageLink}
                                         alt=''
                                         width={1200}
@@ -109,7 +109,7 @@ const AuthLayout = ({
                     )}
                 </div>
 
-                <motion.div className='w-3/6 flex items-center justify-center'>{children}</motion.div>
+                <motion.div className='w-2/6 flex items-center justify-center'>{children}</motion.div>
 
             </section>
 
