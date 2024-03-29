@@ -23,6 +23,7 @@ import {
 } from '@/components/atoms/form';
 import { Checkbox } from '@/components/atoms/checkbox';
 import { useRouter } from 'next/navigation';
+import AuthHeader from '@/components/molecules/AuthHeader';
 
 const newPasswordFormSchema = z
     .object({
@@ -66,29 +67,27 @@ const NewPasswordPage = () => {
         <section>
             <Card className='w-[500px]'>
                 <CardHeader>
-                    <CardTitle className='text-xl font-semibold'>
-                        Create new password
-                    </CardTitle>
-                    <CardDescription className='text-gray-400'>
-                        Forgot password ? No problem.
-                    </CardDescription>
+                    <AuthHeader
+                        title='Create new password'
+                        subTitle='Forgot password? no problem.'
+                    />
                 </CardHeader>
 
                 <CardContent>
                     <Form {...form}>
                         <form
                             onSubmit={form.handleSubmit(onSubmit)}
-                            className='flex flex-col gap-3'
+                            className='flex flex-col space-y-7 text-lg'
                         >
                             <FormField
                                 control={form.control}
                                 name='password'
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>New Password</FormLabel>
+                                        {/* <FormLabel>New Password</FormLabel> */}
                                         <FormControl>
                                             <Input
-                                                className='h-12'
+                                                className='h-16 text-lg'
                                                 type='password'
                                                 placeholder='enter your password'
                                                 {...field}
@@ -104,10 +103,10 @@ const NewPasswordPage = () => {
                                 name='confirmPassword'
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel>Confirm password</FormLabel>
+                                        {/* <FormLabel>Confirm password</FormLabel> */}
                                         <FormControl>
                                             <Input
-                                                className='h-12'
+                                                className='h-16 text-lg'
                                                 type='password'
                                                 placeholder='confirm your password'
                                                 {...field}
@@ -120,7 +119,7 @@ const NewPasswordPage = () => {
 
                             <Button
                                 type='submit'
-                                className='bg-[#00AB55] text-2xl font-semibold w-full h-20'
+                                className='bg-green-600 text-xl  w-full h-16'
                             >
                                 Confirm
                             </Button>

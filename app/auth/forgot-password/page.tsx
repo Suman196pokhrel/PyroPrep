@@ -13,6 +13,7 @@ import {
 import OtpInput from 'react-otp-input';
 import { Progress } from '@/components/atoms/progress';
 import { Button } from '@/components/atoms/button';
+import AuthHeader from '@/components/molecules/AuthHeader';
 
 const ForgetPasswordPage = () => {
     const [otpValue, setOtpValue] = useState('');
@@ -50,12 +51,14 @@ const ForgetPasswordPage = () => {
     return (
         <section>
             <Card>
-                <CardHeader className='text-xl font-bold'>
-                    Verify your email
-                    <p className='text-sm text-slate-500 font-normal mt-3'>
-                        An otp has been sent to your email, enter the 6 digit OTP in the
-                        following fields.
-                    </p>
+                <CardHeader>
+                    <AuthHeader
+                        title='Verify your email'
+                        subTitle='An otp has been sent to your email, enter the 6 digit OTP in the
+                        following fields.'
+                    />
+
+
                 </CardHeader>
 
                 <CardContent className=' my-5'>
@@ -68,7 +71,7 @@ const ForgetPasswordPage = () => {
                             <div className='flex items-center justify-center mx-4  p-3 border-2   rounded-lg '>
                                 <input
                                     {...props}
-                                    className=' outline-none focus:outline-none text-2xl w-fulll h-full'
+                                    className=' outline-none focus:outline-none text-2xl w-fulll h-full transition-all ease-linear'
                                 />
                             </div>
                         )}
@@ -77,7 +80,7 @@ const ForgetPasswordPage = () => {
 
                 <CardFooter className='text-slate-500 text-sm w-full flex items-start justify-center flex-col gap-10'>
                     <Button
-                        className='bg-[#00AB55] text-2xl font-semibold w-full h-20'
+                        className='bg-green-600 text-xl  w-full h-16'
                         onClick={handleSubmitOtp}
                     >
                         Submit
@@ -86,7 +89,7 @@ const ForgetPasswordPage = () => {
                         <div className='flex flex-col gap-5 w-full items-center'>
                             <Progress
                                 value={((60 - remainingTime) / 60) * 100}
-                                className=' h-2 '
+                                className=' h-2'
                             />
                             <p>
                                 Resend Otp afte{' '}
@@ -100,7 +103,7 @@ const ForgetPasswordPage = () => {
                             Didnt&apos;t receive the OTP ?{' '}
                             <span
                                 onClick={handleResendOtp}
-                                className='text-slate-700 font-semibold hover:underline cursor-pointer'
+                                className='text-green-600 font-semibold hover:underline cursor-pointer'
                             >
                                 &nbsp; Resend OTP{' '}
                             </span>

@@ -39,7 +39,7 @@ const AuthLayout = ({
                     link: "/auth/signup"
                 },
                 bannerData: {
-                    title: "Hi, welcome to pyroprep",
+                    title: "Get Ready To Ace Your Exams With PyroPrep.",
                     imageLink: "/static/characters/character_01.png"
                 }
             })
@@ -76,7 +76,7 @@ const AuthLayout = ({
                         </Link>
                     </motion.div>
                     <div className='flex flex-col gap-16 items-center justify-center'>
-                        <h3 className='text-[#212B36] text-4xl font-bold w-2/3'>{conditionalData?.bannerData.title}</h3>
+                        <h3 className='text-gray-800 text-4xl font-bold w-3/5'>{conditionalData?.bannerData.title}</h3>
                         {conditionalData && (
                             <motion.figure key={currentPath} {...smoothSlideUp}>
                                 {conditionalData.bannerData.imageLink && (
