@@ -13,6 +13,7 @@ import {
 import OtpInput from 'react-otp-input';
 import { Progress } from '@/components/atoms/progress';
 import { Button } from '@/components/atoms/button';
+import AuthHeader from '@/components/molecules/AuthHeader';
 
 const VerifyEmailOtpPage = () => {
     const [otpValue, setOtpValue] = useState('');
@@ -50,11 +51,13 @@ const VerifyEmailOtpPage = () => {
         <section>
             <Card>
                 <CardHeader className='text-xl font-bold'>
-                    Verify your email
-                    <p className='text-sm text-slate-500 font-normal mt-3'>
-                        An otp has been sent to your email, enter the 6 digit OTP in the
-                        following fields.
-                    </p>
+                    <AuthHeader
+
+                        title='Verify your email'
+                        subTitle='An otp has been sent to your email, enter the 6 digit OTP in the
+                        following fields.'
+                    />
+
                 </CardHeader>
 
                 <CardContent className=' my-5'>
@@ -76,7 +79,8 @@ const VerifyEmailOtpPage = () => {
 
                 <CardFooter className='text-slate-500 text-sm w-full flex items-start justify-center flex-col gap-10'>
                     <Button
-                        className='bg-[#00AB55] text-2xl font-semibold w-full h-20'
+                        className='text-xl w-full h-16'
+                        variant={"pyroPrimary"}
                         onClick={handleSubmitOtp}
                     >
                         Submit

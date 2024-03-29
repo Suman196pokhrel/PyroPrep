@@ -119,7 +119,8 @@ const NewPasswordPage = () => {
 
                             <Button
                                 type='submit'
-                                className='bg-green-600 text-xl  w-full h-16'
+                                variant={"pyroPrimary"}
+                                className='text-xl  w-full h-16'
                             >
                                 Confirm
                             </Button>

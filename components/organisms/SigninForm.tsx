@@ -59,7 +59,7 @@ const SigninForm = () => {
                         </FormItem>
                     )}
                 />
-                <Button type='submit' className=' bg-green-600 text-xl w-full h-16'>Login</Button>
+                <Button type='submit' variant={'pyroPrimary'} className='text-xl w-full h-16'>Login</Button>
 
             </form>
 

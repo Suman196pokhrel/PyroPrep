@@ -80,7 +80,8 @@ const ForgetPasswordPage = () => {
 
                 <CardFooter className='text-slate-500 text-sm w-full flex items-start justify-center flex-col gap-10'>
                     <Button
-                        className='bg-green-600 text-xl  w-full h-16'
+                        className='text-xl  w-full h-16'
+                        variant={"pyroPrimary"}
                         onClick={handleSubmitOtp}
                     >
                         Submit

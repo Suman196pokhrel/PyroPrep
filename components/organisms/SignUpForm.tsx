@@ -82,7 +82,7 @@ const SignUpForm = () => {
                         </FormItem>
                     )}
                 />
-                <Button type='submit' className='bg-green-600 text-xl  w-full h-16'>Create account</Button>
+                <Button type='submit' className=' w-full h-16 text-xl' variant={"pyroPrimary"}>Create account</Button>
 
             </form>
 
