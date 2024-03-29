@@ -59,14 +59,14 @@ const AuthLayout = ({
     }, [currentPath])
 
     return (
-        <main className='flex min-h-screen justify-between p-10 gap-2'>
+        <main className='flex min-h-screen justify-between p-3 lg:p-5 xxl:p-10 gap-2 border-2 border-red-500'>
             <AnimatePresence mode='wait'>
 
-                <section className='w-2/6 bg-white rounded-xl drop-shadow-2xl flex flex-col items-center justify-center relative'>
+                <section className='w-2/6 hidden bg-white rounded-xl drop-shadow-2xl lg:flex flex-col items-center justify-center relative'>
                     <motion.div {...smoothSlideUp} className='absolute top-3 left-3'>
                         <Link href={"/"}>
                             <Image
-                                className='w-14 h-14'
+                                className='xxl:w-14 xxl:h-14 w-10 h-10'
                                 src={"/static/mockLogo.png"}
                                 alt=''
                                 width={300}
@@ -76,7 +76,7 @@ const AuthLayout = ({
                         </Link>
                     </motion.div>
                     <div className='flex flex-col gap-16 items-center justify-center'>
-                        <h3 className='text-gray-800 text-4xl font-bold w-3/5'>{conditionalData?.bannerData.title}</h3>
+                        <h3 className='text-gray-800 text-xl xxl:text-4xl font-bold w-3/5'>{conditionalData?.bannerData.title}</h3>
                         {conditionalData && (
                             <motion.figure key={currentPath} {...smoothSlideUp}>
                                 {conditionalData.bannerData.imageLink && (
@@ -97,8 +97,8 @@ const AuthLayout = ({
             </AnimatePresence>
 
 
-            <section className='w-4/6 relative flex items-center justify-center'>
-                <div className='absolute top-3 right-3 font-medium text-lg'>
+            <section className='w-full lg:w-4/6 relative flex flex-col items-center justify-center border-2 border-yellow-400'>
+                <div className='absolute top-1 right-0 lg:top-3 lg:right-3 font-medium lg:text-lg text-sm'>
                     {conditionalData && (
                         <p className='text-[#212B36] cursor-pointer'>
                             {conditionalData.topRightLink.title}{' '}
@@ -109,7 +109,7 @@ const AuthLayout = ({
                     )}
                 </div>
 
-                <motion.div className='w-2/6 flex items-center justify-center'>{children}</motion.div>
+                <motion.div className='w-5/6 lg:w-3/6 xl:2/6 flex items-center justify-center border-2 border-green-500'>{children}</motion.div>
 
             </section>
 
