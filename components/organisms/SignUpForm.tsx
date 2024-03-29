@@ -44,14 +44,14 @@ const SignUpForm = () => {
     return (
         <Form {...form}>
 
-            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-7 w-full text-lg'>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4  xl:space-y-7 w-full text-lg'>
                 <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input className='h-16 text-lg' placeholder='Email' {...field} />
+                                <Input className='h-14 text-lg xl:h-16' placeholder='Email' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -63,7 +63,7 @@ const SignUpForm = () => {
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input className='h-16 text-lg' placeholder='password' type='password' {...field} />
+                                <Input className='h-14 text-lg xl:h-16' placeholder='password' type='password' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -76,13 +76,13 @@ const SignUpForm = () => {
                     render={({ field }) => (
                         <FormItem>
                             <FormControl>
-                                <Input className='h-16 text-lg' placeholder='confirm password' type='password' {...field} />
+                                <Input className='h-14 text-lg xl:h-16' placeholder='confirm password' type='password' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button type='submit' className=' w-full h-16 text-xl' variant={"pyroPrimary"}>Create account</Button>
+                <Button type='submit' className='w-full  h-14 text-lg xl:h-16 xl:text-xl' variant={"pyroPrimary"}>Create account</Button>
 
             </form>
 
