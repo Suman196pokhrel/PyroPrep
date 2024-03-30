@@ -76,7 +76,7 @@ const AuthLayout = ({
                         </Link>
                     </motion.div>
                     <div className='flex flex-col gap-16 items-center justify-center'>
-                        <h3 className='text-gray-800 text-xl xxl:text-4xl font-bold w-3/5'>{conditionalData?.bannerData.title}</h3>
+                        <h3 className='text-gray-800 text-xl xl:text-3xl font-bold w-4/6'>{conditionalData?.bannerData.title}</h3>
                         {conditionalData && (
                             <motion.figure key={currentPath} {...smoothSlideUp}>
                                 {conditionalData.bannerData.imageLink && (
