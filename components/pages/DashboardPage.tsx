@@ -62,7 +62,7 @@ const DashboardPage = () => {
         <section className='w-full flex flex-col gap-5 '>
             <h2 className='text-[#3d4e61] font-bold text-3xl'>Domains</h2>
 
-            <div className=' grid grid-cols-4 gap-10'>
+            <div className=' grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10'>
                 {/* DOMAIN CARDS  */}
                 {mockDomains.map((items, index) => (
                     <motion.div
