@@ -21,15 +21,15 @@ const loginOptions = [
         signInParams: "facebook"
 
 
-    },
-    {
-        title: "X",
-        icon: FaXTwitter,
-        color: "text-black",
-        signInParams: "twitter"
-
-
     }
+    // {
+    //     title: "X",
+    //     icon: FaXTwitter,
+    //     color: "text-black",
+    //     signInParams: "twitter"
+
+
+    // }
 ]
 
 
