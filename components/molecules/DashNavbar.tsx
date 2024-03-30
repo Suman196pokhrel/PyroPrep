@@ -47,7 +47,7 @@ const navItems = [
 
 const DashNavbar = () => {
     return (
-        <nav className='w-full bg-[#00AB55]  bg-opacity-10 px-3 py-1 text-sm flex items-center justify-between'>
+        <nav className='w-full bg-[#00AB55] hidden md:flex bg-opacity-10 px-3 py-1 text-sm  items-center justify-between'>
 
 
             {/* LEFT  */}
