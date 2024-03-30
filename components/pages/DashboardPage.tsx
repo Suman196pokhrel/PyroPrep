@@ -59,7 +59,7 @@ const mockDomains = [
 const DashboardPage = () => {
 
     return (
-        <section className='w-full flex flex-col gap-5'>
+        <section className='w-full flex flex-col gap-5 border-2 border-red-500'>
             <h2 className='text-[#3d4e61] font-bold text-3xl'>Domains</h2>
 
             <div className=' grid grid-cols-4 gap-10'>

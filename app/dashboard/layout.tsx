@@ -17,7 +17,7 @@ const DashboardLayout = (
             {/* NAVBAR  */}
             <DashNavbar />
 
-            <section className='flex flex-col items-center mt-10 gap-10 w-5/6'>
+            <section className='flex flex-col items-center mt-10 gap-10 w-5/6 border-2 border-red-400'>
 
                 {/* HERO SECTION  */}
                 <div className='flex gap-5  items-center'>

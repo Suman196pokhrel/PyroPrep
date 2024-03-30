@@ -20,13 +20,13 @@ const carousalImages = [
 
 const DashCarousel = () => {
     return (
-        <main className='w-1/4 rounded-xl'>
+        <main className='w-1/4 rounded-xl hidden lg:block'>
 
             <Carousel className=' relative'>
 
                 <CarouselContent>
                     {carousalImages.map((item, index) => (
-                        <CarouselItem key={index} className='flex items-center justify-center h-[320px] w-[300px]'>
+                        <CarouselItem key={index} className='flex items-center justify-center h-[280px] w-[200px]'>
                             <Image
                                 className='h-full w-full rounded-xl'
                                 src={item}
@@ -39,11 +39,6 @@ const DashCarousel = () => {
 
 
                 </CarouselContent>
-
-
-                {/* <div className=' absolute bg-black top-0 h-[320px] w-[423px] rounded-xl bg-opacity-50'>
-
-                </div> */}
 
                 <CarouselPrevious />
                 <CarouselNext />
