@@ -28,6 +28,7 @@ const authOptions = {
       clientSecret: TWITTER_CLIENT_SECRET,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
