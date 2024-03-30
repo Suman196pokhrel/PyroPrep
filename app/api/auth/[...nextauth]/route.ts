@@ -10,7 +10,7 @@ const FACEBOOK_CLIENT_SECRET = process.env.FACEBOOK_CLIENT_SECRET || "";
 const TWITTER_CLIENT_ID = process.env.TWITTER_CLIENT_ID || "";
 const TWITTER_CLIENT_SECRET = process.env.TWITTER_CLIENT_SECRET || "";
 
-export const authOptions = {
+const authOptions = {
   // Configure one or more authentication providers
   providers: [
     GoogleProvider({
