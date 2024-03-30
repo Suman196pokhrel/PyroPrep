@@ -14,7 +14,7 @@ const DashBanner = () => {
 
             {/* RIGHT  */}
             <figure className=''>
-                <Image className='' src={"/static/heroImg.png"} alt='' width={380} height={200} />
+                <Image className='' src={"/static/heroImg.png"} alt='' width={400} height={400} />
             </figure>
         </div>
     )

@@ -1,3 +1,4 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -19,6 +20,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/atoms/dropdown"
 import { Button } from '../atoms/button';
+import { signOut } from 'next-auth/react';
 
 
 
@@ -72,30 +74,20 @@ const DashNavbar = () => {
             {/* RIGHT  */}
             <div className='flex items-center gap-5 text-2xl font-bold text-[#557480]'>
                 <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+                    <DropdownMenuTrigger >
                         <IoIosNotifications className=' cursor-pointer' />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56 ">
                         <DropdownMenuLabel>Notifications</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuGroup>
-                            {/* <DropdownMenuItem>
-                                Profile
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Billing
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                Settings
-                            </DropdownMenuItem> */}
-                        </DropdownMenuGroup>
                         <DropdownMenuSeparator />
 
 
                     </DropdownMenuContent>
                 </DropdownMenu>
+
                 <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
+                    <DropdownMenuTrigger >
                         <RxAvatar className=' cursor-pointer' />
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56 ">
@@ -119,8 +111,9 @@ const DashNavbar = () => {
                         <DropdownMenuItem disabled>API</DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                            Log out
-                            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+                            <Button variant={"ghost"} onClick={() => signOut()}>
+                                Log out
+                            </Button>
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
