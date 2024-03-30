@@ -59,7 +59,7 @@ const AuthLayout = ({
     }, [currentPath])
 
     return (
-        <main className='flex min-h-screen justify-between p-3 lg:p-5 xxl:p-10 gap-2 border-2 border-red-500'>
+        <main className='flex min-h-screen justify-between p-3 lg:p-5 xxl:p-10 gap-2'>
             <AnimatePresence mode='wait'>
 
                 <section className='w-2/6 hidden bg-white rounded-xl drop-shadow-2xl lg:flex flex-col items-center justify-center relative'>
@@ -97,7 +97,7 @@ const AuthLayout = ({
             </AnimatePresence>
 
 
-            <section className='w-full lg:w-4/6 relative flex flex-col items-center justify-center border-2 border-yellow-400'>
+            <section className='w-full lg:w-4/6 relative flex flex-col items-center justify-center'>
                 <div className='absolute top-1 right-0 lg:top-3 lg:right-3 font-medium lg:text-lg text-sm'>
                     {conditionalData && (
                         <p className='text-[#212B36] cursor-pointer'>

@@ -14,6 +14,7 @@ import OtpInput from 'react-otp-input';
 import { Progress } from '@/components/atoms/progress';
 import { Button } from '@/components/atoms/button';
 import AuthHeader from '@/components/molecules/AuthHeader';
+import { Input } from '@/components/atoms/input';
 
 const ForgetPasswordPage = () => {
     const [otpValue, setOtpValue] = useState('');
@@ -61,14 +62,14 @@ const ForgetPasswordPage = () => {
 
                 </CardHeader>
 
-                <CardContent className=' my-5'>
+                <CardContent className='my-3 xl:my-5'>
                     <OtpInput
                         value={otpValue}
                         onChange={(val) => handleOtpChange(val)}
                         numInputs={6}
-                        renderSeparator={<span> - </span>}
+                        renderSeparator={<span className='hidden lg:flex'> - </span>}
                         renderInput={(props, index) => (
-                            <div className='flex items-center justify-center mx-4  p-3 border-2   rounded-lg '>
+                            <div className=' hidden lg:flex items-center justify-center mx-4  p-3 border-2  rounded-lg '>
                                 <input
                                     {...props}
                                     className=' outline-none focus:outline-none text-2xl w-fulll h-full transition-all ease-linear'
@@ -76,11 +77,23 @@ const ForgetPasswordPage = () => {
                             </div>
                         )}
                     />
+
+                    <Input
+                        placeholder='6 digit otp'
+                        className='h-14 text-xl border-b-2 active:outline-none active:border-none lg:hidden'
+                        type='number'
+                        value={otpValue}
+                        onChange={(e) => handleOtpChange(e.target.value)}
+
+
+                    />
+
+
                 </CardContent>
 
                 <CardFooter className='text-slate-500 text-sm w-full flex items-start justify-center flex-col gap-10'>
                     <Button
-                        className='text-xl  w-full h-16'
+                        className='w-full  h-14 text-lg xl:h-16 xl:text-xl'
                         variant={"pyroPrimary"}
                         onClick={handleSubmitOtp}
                     >
