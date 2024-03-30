@@ -64,8 +64,8 @@ const NewPasswordPage = () => {
     }
 
     return (
-        <section>
-            <Card className='w-[500px]'>
+        <section className='w-full'>
+            <Card>
                 <CardHeader>
                     <AuthHeader
                         title='Create new password'
@@ -77,7 +77,7 @@ const NewPasswordPage = () => {
                     <Form {...form}>
                         <form
                             onSubmit={form.handleSubmit(onSubmit)}
-                            className='flex flex-col space-y-7 text-lg'
+                            className='space-y-4  xl:space-y-7 w-full text-lg'
                         >
                             <FormField
                                 control={form.control}
@@ -120,15 +120,13 @@ const NewPasswordPage = () => {
                             <Button
                                 type='submit'
                                 variant={"pyroPrimary"}
-                                className='text-xl  w-full h-16'
+                                className='w-full  h-14 text-lg xl:h-16 xl:text-xl'
                             >
                                 Confirm
                             </Button>
                         </form>
                     </Form>
                 </CardContent>
-
-                <CardFooter className=''></CardFooter>
             </Card>
         </section>
     );
