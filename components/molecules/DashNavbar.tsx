@@ -50,9 +50,11 @@ const DashNavbar = () => {
 
             {/* LEFT  */}
             <div className='flex gap-10 items-center'>
-                <figure>
-                    <Image src={"/static/logo.png"} alt='' width={40} height={40} />
-                </figure>
+                <Link href={"/dashboard"}>
+                    <figure>
+                        <Image src={"/static/logo.png"} alt='' width={40} height={40} />
+                    </figure>
+                </Link>
 
                 {/* NAV ITEMS  */}
                 <ul className='flex items-center gap-10 text-[#005249] '>
