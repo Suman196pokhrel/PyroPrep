@@ -4,7 +4,9 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   // SOME LOGIC TO CHECK AUTH StATUS
-  const nextauth_session_token = request.cookies.get("next-auth.session-token");
+  const nextauth_session_token =
+    request.cookies.get("next-auth.session-token") ||
+    request.cookies.get("__Secure-next-auth.session-token");
 
   const publicRoutes =
     request.nextUrl.pathname == "/auth/signin" ||
