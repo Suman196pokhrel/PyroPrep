@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { smoothInView, smoothSlideUp } from '@/lib/framerAnimations'
+import AuthGuard from '@/lib/AuthGuard'
 
 type AuthLayoutProps = {
     children: React.ReactNode

@@ -3,6 +3,7 @@ import DashCarousel from '@/components/molecules/DashCarousel'
 import DashNavbar from '@/components/molecules/DashNavbar'
 import React from 'react'
 import DashMobileNavbar from '@/components/molecules/DashMobileNavbar'
+import AuthGuard from '@/lib/AuthGuard'
 
 type DashboardProps = {
     children: React.ReactNode
@@ -13,6 +14,10 @@ const DashboardLayout = (
         children
     }: DashboardProps
 ) => {
+
+
+
+
     return (
         <main className='min-h-screen flex flex-col items-center pb-10'>
             {/* DESKTOP- NAVBAR  */}

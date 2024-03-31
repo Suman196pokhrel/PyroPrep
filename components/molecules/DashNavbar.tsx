@@ -21,6 +21,7 @@ import {
 } from "@/components/atoms/dropdown"
 import { Button } from '../atoms/button';
 import { signOut } from 'next-auth/react';
+import { useSessionStore } from '@/lib/zustand/store';
 
 
 
@@ -46,6 +47,16 @@ const navItems = [
 
 
 const DashNavbar = () => {
+
+    const clearUser = useSessionStore((state) => state.clearUser)
+
+    const handleLogout = () => {
+        clearUser()
+        signOut()
+        console.log("SESSION TERMINATED")
+    }
+
+
     return (
         <nav className='w-full bg-[#00AB55] hidden md:flex bg-opacity-10 px-3 py-1 text-sm  items-center justify-between'>
 
@@ -111,7 +122,7 @@ const DashNavbar = () => {
                         <DropdownMenuItem disabled>API</DropdownMenuItem>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem>
-                            <Button variant={"ghost"} onClick={() => signOut()}>
+                            <Button variant={"ghost"} onClick={handleLogout}>
                                 Log out
                             </Button>
                         </DropdownMenuItem>
