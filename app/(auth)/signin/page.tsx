@@ -34,7 +34,7 @@ const SignIn = () => {
                     <p>Remember me</p>
                 </div>
 
-                <Link href={"/auth/forgot-password"} className='text-[#229a16] font-semibold xl:text-lg'>
+                <Link href={"/forgot-password"} className='text-[#229a16] font-semibold xl:text-lg'>
                     Forgot password ?
                 </Link>
             </div>

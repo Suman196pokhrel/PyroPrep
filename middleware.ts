@@ -9,8 +9,8 @@ export function middleware(request: NextRequest) {
     request.cookies.get("__Secure-next-auth.session-token");
 
   const publicRoutes =
-    request.nextUrl.pathname == "/auth/signin" ||
-    request.nextUrl.pathname === "/auth/signup" ||
+    request.nextUrl.pathname == "/signin" ||
+    request.nextUrl.pathname === "/signup" ||
     request.nextUrl.pathname === "/";
 
   // IF USER IS TRYING TO ACCESS AUTH ROUTES
@@ -26,7 +26,7 @@ export function middleware(request: NextRequest) {
     // IF HE IS NOT AUTHENTICATED
     if (!nextauth_session_token)
       // RETURN HIM TO AUTH PAGE
-      return NextResponse.redirect(new URL("/auth/signin", request.url));
+      return NextResponse.redirect(new URL("/signin", request.url));
   }
   console.log("Middleware EXECUTED");
 }

@@ -60,7 +60,7 @@ const NewPasswordPage = () => {
 
     function onSubmit(values: z.infer<typeof newPasswordFormSchema>) {
         console.log(values);
-        router.push('/auth/signin');
+        router.push('/signin');
     }
 
     return (

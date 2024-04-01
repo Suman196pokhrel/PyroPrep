@@ -32,12 +32,12 @@ const AuthLayout = ({
     const [conditionalData, setConditionalData] = useState<ConditionalData | null>(null)
 
     useEffect(() => {
-        if (currentPath === "/auth/signin") {
+        if (currentPath === "/signin") {
             setConditionalData({
                 topRightLink: {
                     title: "Don't have an account ?",
                     content: "Get started",
-                    link: "/auth/signup"
+                    link: "/signup"
                 },
                 bannerData: {
                     title: "Get Ready To Ace Your Exams With PyroPrep.",
@@ -49,7 +49,7 @@ const AuthLayout = ({
                 topRightLink: {
                     title: "Already have an account ?",
                     content: "Login",
-                    link: "/auth/signin"
+                    link: "/signin"
                 },
                 bannerData: {
                     title: "Work smart & Ace your exams with Pyroprep.",

@@ -60,7 +60,7 @@ const DashAuthGuard = ({
     }
 
     if (!user) {
-        router.push("/auth/signin")
+        router.push("/signin")
     }
 
 

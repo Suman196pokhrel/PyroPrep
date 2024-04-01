@@ -37,7 +37,7 @@ const SignUpForm = () => {
 
     function onSubmit(values: z.infer<typeof formSchema>) {
         console.log(values)
-        router.push("/auth/signin")
+        router.push("/signin")
     }
 
 

@@ -45,7 +45,7 @@ const ForgetPasswordPage = () => {
         if (otpValue.trim() !== '') {
             console.log('Submitted');
             console.log(otpValue);
-            router.push('/auth/forgot-password/new-password');
+            router.push('/forgot-password/new-password');
         }
     };
 
