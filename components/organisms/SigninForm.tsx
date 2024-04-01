@@ -7,25 +7,22 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '../atoms/input'
 import { Button } from '../atoms/button'
 import { useRouter } from 'next/navigation'
+import { LoginSchema } from '@/schemas'
 
-const formSchema = z.object({
-    email: z.string().email('Invalid email format').min(1, 'Email is required'),
-    password: z.string().min(8, 'Password must be at least 8 characters long')
-})
 
 const SigninForm = () => {
 
     const router = useRouter()
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const form = useForm<z.infer<typeof LoginSchema>>({
+        resolver: zodResolver(LoginSchema),
         defaultValues: {
             email: "",
             password: ""
         }
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    const onSubmit = (values: z.infer<typeof LoginSchema>) => {
         console.log(values)
         router.push("/dashboard")
     }
@@ -40,8 +37,9 @@ const SigninForm = () => {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
+                            <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input className=' h-14 text-lg xl:h-16' placeholder='Email' {...field} />
+                                <Input className=' h-14 text-lg xl:h-16' placeholder='john.doc@example.com' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -52,14 +50,20 @@ const SigninForm = () => {
                     name="password"
                     render={({ field }) => (
                         <FormItem>
+                            <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input className=' h-14 text-lg xl:h-16' placeholder='password' type='password' {...field} />
+                                <Input className=' h-14 text-lg xl:h-16' placeholder='******' type='password' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <Button type='submit' variant={'pyroPrimary'} className='w-full  h-14 text-lg xl:h-16 xl:text-xl'>Login</Button>
+                <Button
+                    type='submit'
+                    variant={'pyroPrimary'}
+                    className='w-full  h-14 text-lg xl:h-16 xl:text-xl'>
+                    Login
+                </Button>
 
             </form>
 
