@@ -9,6 +9,7 @@ import { Button } from '../atoms/button'
 import { useRouter } from 'next/navigation'
 import { LoginSchema } from '@/schemas'
 import { FormError } from '../FormError'
+import { FormSuccess } from '../FormSuccess'
 
 
 const SigninForm = () => {
@@ -62,6 +63,9 @@ const SigninForm = () => {
                     />
                 </div>
                 <FormError
+                    message=''
+                />
+                <FormSuccess
                     message=''
                 />
                 <Button
