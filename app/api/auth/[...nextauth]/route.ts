@@ -10,32 +10,34 @@ const FACEBOOK_CLIENT_SECRET = process.env.FACEBOOK_CLIENT_SECRET || "";
 const TWITTER_CLIENT_ID = process.env.TWITTER_CLIENT_ID || "";
 const TWITTER_CLIENT_SECRET = process.env.TWITTER_CLIENT_SECRET || "";
 
-const authOptions = {
-  // Configure one or more authentication providers
-  providers: [
-    GoogleProvider({
-      clientId: GOOGLE_CLIENT_ID,
-      clientSecret: GOOGLE_CLIENT_SECRET,
-    }),
+// const authOptions = {
+//   // Configure one or more authentication providers
+//   providers: [
+//     GoogleProvider({
+//       clientId: GOOGLE_CLIENT_ID,
+//       clientSecret: GOOGLE_CLIENT_SECRET,
+//     }),
 
-    FacebookProvider({
-      clientId: FACEBOOK_CLIENT_ID,
-      clientSecret: FACEBOOK_CLIENT_SECRET,
-    }),
+//     FacebookProvider({
+//       clientId: FACEBOOK_CLIENT_ID,
+//       clientSecret: FACEBOOK_CLIENT_SECRET,
+//     }),
 
-    TwitterProvider({
-      clientId: TWITTER_CLIENT_ID,
-      clientSecret: TWITTER_CLIENT_SECRET,
-    }),
-  ],
-  secret: process.env.NEXTAUTH_SECRET,
-  callbacks: {
-    async signIn() {
-      return true;
-    },
-  },
-};
+//     TwitterProvider({
+//       clientId: TWITTER_CLIENT_ID,
+//       clientSecret: TWITTER_CLIENT_SECRET,
+//     }),
+//   ],
+//   secret: process.env.NEXTAUTH_SECRET,
+//   callbacks: {
+//     async signIn() {
+//       return true;
+//     },
+//   },
+// };
 
-const handler = NextAuth(authOptions);
+// const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST };
+// export { handler as GET, handler as POST };
+
+export { GET, POST } from "@/auth";
