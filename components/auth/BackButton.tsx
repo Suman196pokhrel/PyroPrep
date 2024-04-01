@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { Button } from '../atoms/button'
 
 interface BackButtonProps {
     backButtonHref: string
@@ -8,10 +9,10 @@ interface BackButtonProps {
 
 export const BackButton = ({ backButtonHref, backButtonLabel }: BackButtonProps) => {
     return (
-        <div className='flex w-full justify-center pt-6'>
-            <Link href={`${backButtonHref}`} className='text-[#229a16]'>
+        <Button variant={"link"} size={"default"} asChild className='text-[#229a16] w-full flex justify-end'>
+            <Link href={`${backButtonHref}`}>
                 {backButtonLabel}
             </Link>
-        </div >
+        </Button>
     )
 }
