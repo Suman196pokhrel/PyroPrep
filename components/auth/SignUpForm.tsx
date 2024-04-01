@@ -61,7 +61,7 @@ const SignUpForm = () => {
                                 <FormLabel>Name</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className='h-14 text-lg xl:h-16'
+                                        className='h-14  xl:h-16'
                                         placeholder='John'
                                         {...field}
                                         disabled={isPending}
@@ -80,7 +80,7 @@ const SignUpForm = () => {
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className='h-14 text-lg xl:h-16'
+                                        className='h-14 xl:h-16'
                                         placeholder='john.doe!example.com'
                                         type='email'
                                         {...field}
@@ -101,7 +101,7 @@ const SignUpForm = () => {
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className='h-14 text-lg xl:h-16'
+                                        className='h-14  xl:h-16'
                                         placeholder='******'
                                         type='password'
                                         {...field}
@@ -118,7 +118,7 @@ const SignUpForm = () => {
                 <FormSuccess message={success} />
                 <Button
                     type='submit'
-                    className='w-full  h-14 text-lg xl:h-16 xl:text-xl'
+                    className='w-full  h-14 text-lg xl:h-16 '
                     variant={"pyroPrimary"}
                     disabled={isPending}
 

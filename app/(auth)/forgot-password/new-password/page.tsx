@@ -87,7 +87,7 @@ const NewPasswordPage = () => {
                                         {/* <FormLabel>New Password</FormLabel> */}
                                         <FormControl>
                                             <Input
-                                                className='h-16 text-lg'
+                                                className='h-16'
                                                 type='password'
                                                 placeholder='enter your password'
                                                 {...field}
@@ -106,7 +106,7 @@ const NewPasswordPage = () => {
                                         {/* <FormLabel>Confirm password</FormLabel> */}
                                         <FormControl>
                                             <Input
-                                                className='h-16 text-lg'
+                                                className='h-16'
                                                 type='password'
                                                 placeholder='confirm your password'
                                                 {...field}

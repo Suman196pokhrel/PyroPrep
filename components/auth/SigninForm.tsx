@@ -57,7 +57,7 @@ const SigninForm = () => {
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className=' h-14 text-lg xl:h-16'
+                                        className=' h-14  xl:h-16'
                                         placeholder='john.doc@example.com'
                                         {...field}
                                         disabled={isPending}
@@ -75,7 +75,7 @@ const SigninForm = () => {
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className=' h-14 text-lg xl:h-16'
+                                        className=' h-14 xl:h-16'
                                         placeholder='******'
                                         type='password'
                                         {...field}
@@ -94,7 +94,7 @@ const SigninForm = () => {
                     disabled={isPending}
                     type='submit'
                     variant={'pyroPrimary'}
-                    className='w-full  h-14 text-lg xl:h-16 xl:text-xl'
+                    className='w-full  h-14 text-lg xl:h-16'
                 >
                     Login
                 </Button>

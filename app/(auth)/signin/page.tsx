@@ -1,6 +1,6 @@
 "use client"
 import { CardWrapper } from '@/components/auth/CardWrapper'
-import SigninForm from '@/components/organisms/SigninForm'
+import SigninForm from '@/components/auth/SigninForm'
 import React from 'react'
 
 const SignIn = () => {

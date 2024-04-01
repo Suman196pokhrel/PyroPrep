@@ -2,7 +2,7 @@
 import { CardWrapper } from '@/components/auth/CardWrapper'
 import AuthHeader from '@/components/molecules/AuthHeader'
 import LoginMethods from '@/components/molecules/LoginMethods'
-import SignUpForm from '@/components/organisms/SignUpForm'
+import SignUpForm from '@/components/auth/SignUpForm'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
