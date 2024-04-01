@@ -3,41 +3,30 @@ import React from 'react'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '../atoms/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../atoms/form'
 import { Input } from '../atoms/input'
 import { Button } from '../atoms/button'
 import { useRouter } from 'next/navigation'
+import { RegisterSchema } from '@/schemas'
 
-const formSchema = z.object({
-    email: z.string().email('Invalid email format').min(1, 'Email is required'),
-    password: z.string().min(8, 'Password must be at least 8 characters long'),
-    confirmPassword: z.string().min(8, 'Password must be at least 8 characters long')
 
-}).refine((values) => {
-    return values.password === values.confirmPassword;
-},
-    {
-        message: "Passwords must match!",
-        path: ["confirmPassword"],
-    }
-);
 
 const SignUpForm = () => {
 
     const router = useRouter()
 
-    const form = useForm<z.infer<typeof formSchema>>({
-        resolver: zodResolver(formSchema),
+    const form = useForm<z.infer<typeof RegisterSchema>>({
+        resolver: zodResolver(RegisterSchema),
         defaultValues: {
             email: "",
             password: "",
-            confirmPassword: "",
+            name: "",
         }
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    function onSubmit(values: z.infer<typeof RegisterSchema>) {
         console.log(values)
-        router.push("/signin")
+        // router.push("/signin")
     }
 
 
@@ -47,11 +36,12 @@ const SignUpForm = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4  xl:space-y-7 w-full text-lg'>
                 <FormField
                     control={form.control}
-                    name="email"
+                    name="name"
                     render={({ field }) => (
                         <FormItem>
+                            <FormLabel>Name</FormLabel>
                             <FormControl>
-                                <Input className='h-14 text-lg xl:h-16' placeholder='Email' {...field} />
+                                <Input className='h-14 text-lg xl:h-16' placeholder='John' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -59,11 +49,12 @@ const SignUpForm = () => {
                 />
                 <FormField
                     control={form.control}
-                    name="password"
+                    name="email"
                     render={({ field }) => (
                         <FormItem>
+                            <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input className='h-14 text-lg xl:h-16' placeholder='password' type='password' {...field} />
+                                <Input className='h-14 text-lg xl:h-16' placeholder='john.doe!example.com' type='email' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -72,11 +63,12 @@ const SignUpForm = () => {
 
                 <FormField
                     control={form.control}
-                    name="confirmPassword"
+                    name="password"
                     render={({ field }) => (
                         <FormItem>
+                            <FormLabel>Password</FormLabel>
                             <FormControl>
-                                <Input className='h-14 text-lg xl:h-16' placeholder='confirm password' type='password' {...field} />
+                                <Input className='h-14 text-lg xl:h-16' placeholder='******' type='password' {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
