@@ -1,36 +1,18 @@
-import { getSession } from "next-auth/react";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import authConfig from "@/auth.config";
+import NextAuth from "next-auth";
 
-export function middleware(request: NextRequest) {
-  // SOME LOGIC TO CHECK AUTH StATUS
-  const nextauth_session_token =
-    request.cookies.get("next-auth.session-token") ||
-    request.cookies.get("__Secure-next-auth.session-token");
+const { auth } = NextAuth(authConfig);
 
-  const publicRoutes =
-    request.nextUrl.pathname == "/signin" ||
-    request.nextUrl.pathname === "/signup" ||
-    request.nextUrl.pathname === "/";
+// WE WILL INVKOE MIDDLEWARE ON BOTH PUBLIC AND PRIVATE ROUTES< AND INSIDE THE MIDDLEWARE WE WILL DECIDE AOURSELVEL WHAT TO DO WITH THEM
 
-  // IF USER IS TRYING TO ACCESS AUTH ROUTES
-  if (publicRoutes) {
-    // IS HE IS LOGGED IN
-    if (nextauth_session_token) {
-      // RETURN HIM TO DASHBOARD
-      return NextResponse.redirect(new URL("/dashboard", request.url));
-    }
-  }
-  // IF HE IS ACCESSING PRIVATE ROUTES
-  else {
-    // IF HE IS NOT AUTHENTICATED
-    if (!nextauth_session_token)
-      // RETURN HIM TO AUTH PAGE
-      return NextResponse.redirect(new URL("/signin", request.url));
-  }
-  console.log("Middleware EXECUTED");
-}
+export default auth((req) => {
+  const isLoggedIn = !!req.auth;
+  console.log("IS LOGGED IN => ", isLoggedIn);
+  console.log("ROUTE => ", req.nextUrl.pathname);
+});
 
+// EVERY ROUTE PLACED INSIDE MATCHER WILL INVOKE MIDDLEWARE (It's not about public or private but more about invoking the middlware on specific routes)
 export const config = {
-  matcher: ["/dashboard/:path*", "/auth/:path*", "/"],
+  // WILL INVOKE MIDDLEWARE ON EVERY ROUTES EXCEPT THE STATIC FILES
+  matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 };
