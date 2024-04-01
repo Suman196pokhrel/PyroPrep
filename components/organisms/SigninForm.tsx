@@ -8,6 +8,7 @@ import { Input } from '../atoms/input'
 import { Button } from '../atoms/button'
 import { useRouter } from 'next/navigation'
 import { LoginSchema } from '@/schemas'
+import { FormError } from '../FormError'
 
 
 const SigninForm = () => {
@@ -32,31 +33,36 @@ const SigninForm = () => {
         <Form {...form}>
 
             <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4  xl:space-y-7 w-full text-lg'>
-                <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Email</FormLabel>
-                            <FormControl>
-                                <Input className=' h-14 text-lg xl:h-16' placeholder='john.doc@example.com' {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="password"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Password</FormLabel>
-                            <FormControl>
-                                <Input className=' h-14 text-lg xl:h-16' placeholder='******' type='password' {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
+                <div>
+                    <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Email</FormLabel>
+                                <FormControl>
+                                    <Input className=' h-14 text-lg xl:h-16' placeholder='john.doc@example.com' {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Password</FormLabel>
+                                <FormControl>
+                                    <Input className=' h-14 text-lg xl:h-16' placeholder='******' type='password' {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
+                <FormError
+                    message=''
                 />
                 <Button
                     type='submit'
