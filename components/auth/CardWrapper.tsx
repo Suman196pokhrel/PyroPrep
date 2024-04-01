@@ -34,10 +34,12 @@ export const CardWrapper = ({
                 subLabel={headerSubLabel}
             />
 
+
+            {children}
+
             {/* LOGIN METHODS  */}
             <Social />
 
-            {children}
 
             {/* LOGIN OPTIONS  */}
             <BackButton
