@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useTransition, useState } from 'react'
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -10,11 +10,16 @@ import { useRouter } from 'next/navigation'
 import { LoginSchema } from '@/schemas'
 import { FormError } from '../FormError'
 import { FormSuccess } from '../FormSuccess'
+import { login } from '@/actions/login'
+
 
 
 const SigninForm = () => {
 
+    const [isPending, startTransition] = useTransition()
     const router = useRouter()
+    const [error, setError] = useState<string | undefined>("")
+    const [success, setSuccess] = useState<string | undefined>("")
 
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
@@ -25,8 +30,17 @@ const SigninForm = () => {
     })
 
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-        console.log(values)
-        router.push("/dashboard")
+        setError("")
+        setSuccess("")
+
+        startTransition(() => {
+            login(values)
+                .then((data) => {
+                    setError(data.error)
+                    setSuccess(data.success)
+                })
+        })
+        // router.push("/dashboard")
     }
 
 
@@ -42,7 +56,12 @@ const SigninForm = () => {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input className=' h-14 text-lg xl:h-16' placeholder='john.doc@example.com' {...field} />
+                                    <Input
+                                        className=' h-14 text-lg xl:h-16'
+                                        placeholder='john.doc@example.com'
+                                        {...field}
+                                        disabled={isPending}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -55,23 +74,28 @@ const SigninForm = () => {
                             <FormItem>
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
-                                    <Input className=' h-14 text-lg xl:h-16' placeholder='******' type='password' {...field} />
+                                    <Input
+                                        className=' h-14 text-lg xl:h-16'
+                                        placeholder='******'
+                                        type='password'
+                                        {...field}
+                                        disabled={isPending}
+
+                                    />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
                 </div>
-                <FormError
-                    message=''
-                />
-                <FormSuccess
-                    message=''
-                />
+                <FormError message={error} />
+                <FormSuccess message={success} />
                 <Button
+                    disabled={isPending}
                     type='submit'
                     variant={'pyroPrimary'}
-                    className='w-full  h-14 text-lg xl:h-16 xl:text-xl'>
+                    className='w-full  h-14 text-lg xl:h-16 xl:text-xl'
+                >
                     Login
                 </Button>
 
