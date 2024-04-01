@@ -36,8 +36,10 @@ const SigninForm = () => {
         startTransition(() => {
             login(values)
                 .then((data) => {
-                    setError(data.error)
-                    setSuccess(data.success)
+                    if (data) {
+                        setError(data.error)
+                    }
+
                 })
         })
         // router.push("/dashboard")
@@ -75,7 +77,7 @@ const SigninForm = () => {
                                 <FormLabel>Password</FormLabel>
                                 <FormControl>
                                     <Input
-                                        className=' h-14 xl:h-16'
+                                        className=' h-14  xl:h-16'
                                         placeholder='******'
                                         type='password'
                                         {...field}
@@ -89,12 +91,12 @@ const SigninForm = () => {
                     />
                 </div>
                 <FormError message={error} />
-                <FormSuccess message={success} />
+                {/* <FormSuccess message={success} /> */}
                 <Button
                     disabled={isPending}
                     type='submit'
                     variant={'pyroPrimary'}
-                    className='w-full  h-14 text-lg xl:h-16'
+                    className='w-full  h-14 text-lg xl:h-16 '
                 >
                     Login
                 </Button>
