@@ -99,7 +99,7 @@ const AuthLayout = ({
 
 
             <section className='w-full lg:w-4/6 relative flex flex-col items-center justify-center'>
-                <div className='absolute top-1 right-0 lg:top-3 lg:right-3 font-medium lg:text-lg text-sm'>
+                {/* <div className='absolute top-1 right-0 lg:top-3 lg:right-3 font-medium lg:text-lg text-sm'>
                     {conditionalData && (
                         <p className='text-[#212B36] cursor-pointer'>
                             {conditionalData.topRightLink.title}{' '}
@@ -108,7 +108,7 @@ const AuthLayout = ({
                             </Link>
                         </p>
                     )}
-                </div>
+                </div> */}
 
                 <motion.div className='w-5/6 lg:w-3/6 xl:2/6 2xl:w-2/6 flex items-center justify-center '>
                     {children}
