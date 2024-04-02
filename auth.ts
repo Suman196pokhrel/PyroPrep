@@ -24,14 +24,19 @@ export const {
     },
   },
   callbacks: {
-    async signIn({ user }) {
-      if (!user.id) return false;
+    async signIn({ user, account }) {
+      // ALLOW OAUTH WITHOUT EMAIL VERIFICATION
+      if (account?.provider !== "credentials") return true;
 
-      // // CODE TO BLOCK SIGNIN IF USER'S EMAIL IS NOT VERIFIED
-      // const existingUser = await getUserById(user.id);
-      // if (!existingUser || !existingUser.emailVerified) {
-      //   return false;
-      // }
+      // CODE TO BLOCK SIGNIN FOR CREDENTIALS BASED LOGIN IF USER'S EMAIL IS NOT VERIFIED
+      if (user.id) {
+        const existingUser = await getUserById(user.id);
+        if (!existingUser?.emailVerified) {
+          return false;
+        }
+      }
+
+      // TODO: ADD TWO FACTOR AUTH
 
       return true;
     },
