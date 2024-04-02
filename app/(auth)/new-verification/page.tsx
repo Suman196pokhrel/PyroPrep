@@ -1,5 +1,5 @@
 "use client"
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { Suspense, useCallback, useEffect, useState } from 'react'
 
 import { CardWrapper } from '@/components/auth/CardWrapper'
 import { PropagateLoader } from "react-spinners"
@@ -7,6 +7,8 @@ import { useSearchParams } from 'next/navigation'
 import { newVerification } from '@/actions/new-verification'
 import { FormSuccess } from '@/components/FormSuccess'
 import { FormError } from '@/components/FormError'
+
+
 
 const NewVerificationPage = () => {
     const [error, setError] = useState<string | undefined>()
@@ -63,6 +65,7 @@ const NewVerificationPage = () => {
         </CardWrapper >
     )
 }
+
 
 
 export default NewVerificationPage

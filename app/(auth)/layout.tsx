@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { smoothInView, smoothSlideUp } from '@/lib/framerAnimations'
 import AuthGuard from '@/lib/AuthGuard'
@@ -111,7 +111,9 @@ const AuthLayout = ({
                 </div> */}
 
                 <motion.div className='w-5/6 lg:w-3/6 xl:2/6 2xl:w-2/6 flex items-center justify-center '>
-                    {children}
+                    <Suspense>
+                        {children}
+                    </Suspense>
                 </motion.div>
 
             </section>

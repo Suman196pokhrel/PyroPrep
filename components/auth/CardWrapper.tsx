@@ -38,11 +38,7 @@ export const CardWrapper = ({
             {children}
 
             {/* LOGIN METHODS  */}
-            {showSocial ? (
-                <Social />
-            ) : (
-                ""
-            )}
+            {showSocial ? (<Social />) : ("")}
 
 
             {/* LOGIN OPTIONS  */}
