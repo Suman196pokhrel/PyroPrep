@@ -1,17 +1,19 @@
 "use client"
+import React, { useCallback, useEffect, useState } from 'react'
+
 import { CardWrapper } from '@/components/auth/CardWrapper'
 import { PropagateLoader } from "react-spinners"
-import React, { useCallback, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { newVerification } from '@/actions/new-verification'
 import { FormSuccess } from '@/components/FormSuccess'
 import { FormError } from '@/components/FormError'
 
-export const NewVerificationPage = () => {
-    const searchParams = useSearchParams()
-    const token = searchParams.get("token")
+const NewVerificationPage = () => {
     const [error, setError] = useState<string | undefined>()
     const [success, setSuccess] = useState<string | undefined>()
+    const searchParams = useSearchParams()
+    const token = searchParams.get("token")
+
 
 
     const onSubmit = useCallback(() => {
