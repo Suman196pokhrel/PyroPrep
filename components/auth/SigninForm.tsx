@@ -40,7 +40,8 @@ const SigninForm = () => {
             login(values)
                 .then((data) => {
                     if (data) {
-                        setError(data.error)
+                        setError(data?.error)
+                        setSuccess(data?.success)
                     }
 
                 })
@@ -94,7 +95,7 @@ const SigninForm = () => {
                     />
                 </div>
                 <FormError message={error || urlError} />
-                {/* <FormSuccess message={success} /> */}
+                <FormSuccess message={success} />
                 <Button
                     disabled={isPending}
                     type='submit'

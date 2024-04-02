@@ -27,7 +27,7 @@ export const {
     async signIn({ user }) {
       if (!user.id) return false;
 
-      // CODE TO BLOCK SIGNIN IF USER'S EMAIL IS NOT VERIFIED
+      // // CODE TO BLOCK SIGNIN IF USER'S EMAIL IS NOT VERIFIED
       // const existingUser = await getUserById(user.id);
       // if (!existingUser || !existingUser.emailVerified) {
       //   return false;

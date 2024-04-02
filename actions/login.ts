@@ -5,6 +5,8 @@ import { LoginSchema } from "@/schemas";
 import { signIn } from "@/auth";
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 import { AuthError } from "next-auth";
+import { getUserByEmail } from "@/data/users";
+import { generateVerificationToken } from "@/lib/tokens";
 
 export const login = async (values: z.infer<typeof LoginSchema>) => {
   // SERVER SIDE VALIDATION
@@ -15,6 +17,21 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
   }
 
   const { email, password } = validatedFields.data;
+  // CHECK IS USER EXISTS , IF USER HAD ALREADY LOGGED IN VIA OAUTH AND IS TRYING TO LOGIN WITH CREDENTIALS
+  const existingUser = await getUserByEmail(email);
+  if (!existingUser || !existingUser.email || !existingUser.password) {
+    return { error: "User does not exists!" };
+  }
+
+  // CHECK IF USER EXISTS BUT EMAIL ISVERIFIED OR NOT
+  if (!existingUser.emailVerified) {
+    const verificationToken = await generateVerificationToken(
+      existingUser.email
+    );
+
+    return { success: "Confirmation email sent!" };
+  }
+
   try {
     await signIn("credentials", {
       email,
