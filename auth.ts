@@ -11,10 +11,25 @@ export const {
   signOut,
 } = NextAuth({
   callbacks: {
+    async signIn({ user }) {
+      if (!user.id) return false;
+
+      // CODE TO BLOCK SIGNIN IF USER'S EMAIL IS NOT VERIFIED
+      // const existingUser = await getUserById(user.id);
+      // if (!existingUser || !existingUser.emailVerified) {
+      //   return false;
+      // }
+
+      return true;
+    },
     async session({ token, session }) {
       // ADDING ADDITIONAL USER ID IN THE SESSION
       if (token.sub && session.user) {
         session.user.id = token.sub;
+      }
+
+      if (token.role && session.user) {
+        session.user.role = token.role;
       }
 
       return session;
