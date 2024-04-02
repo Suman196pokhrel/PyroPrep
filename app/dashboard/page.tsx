@@ -6,7 +6,7 @@ const Dashboard = async () => {
     const session = await auth()
     return (
         <main className='w-full'>
-            {JSON.stringify(session)}
+            {/* {JSON.stringify(session)} */}
             <DashboardPage />
         </main>
     )
