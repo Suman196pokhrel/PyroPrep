@@ -33,7 +33,6 @@ const SignUpForm = () => {
     })
 
     function onSubmit(values: z.infer<typeof RegisterSchema>) {
-        console.log(values)
         setError("")
         setSuccess("")
 

@@ -3,7 +3,12 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendVerificationEmail = async (email: string, token: string) => {
-  const confirmLink = `http://localhost:3000/new-verification?token=${token}`;
+  const isDevelopment = process.env.NODE_ENV === "development";
+  const baseConfirmLink = isDevelopment
+    ? process.env.VERIFY_EMAIL_TOKEN_CONFIRM_LINK_LOCAL
+    : process.env.VERIFY_EMAIL_TOKEN_CONFIRM_LINK_PROD;
+
+  const confirmLink = `${baseConfirmLink}?token=${token}`;
 
   await resend.emails
     .send({

@@ -41,7 +41,6 @@ const DashAuthGuard = ({
 
             }
 
-            console.log("SESSION INFO => ", session?.user?.email, pathname)
         }
 
         CheckAndSetAuthStatus()

@@ -53,7 +53,6 @@ const DashNavbar = () => {
     const handleLogout = () => {
         clearUser()
         signOut()
-        console.log("SESSION TERMINATED")
     }
 
 

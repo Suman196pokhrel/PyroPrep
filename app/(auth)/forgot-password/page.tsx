@@ -23,7 +23,6 @@ const ForgetPasswordPage = () => {
     const router = useRouter();
 
     const handleOtpChange = (val: string) => {
-        console.log(val);
         setOtpValue(val);
     };
 
@@ -43,8 +42,6 @@ const ForgetPasswordPage = () => {
 
     const handleSubmitOtp = async () => {
         if (otpValue.trim() !== '') {
-            console.log('Submitted');
-            console.log(otpValue);
             router.push('/forgot-password/new-password');
         }
     };
