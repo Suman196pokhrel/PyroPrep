@@ -8,11 +8,13 @@ export const sendVerificationEmail = async (email: string, token: string) => {
     ? process.env.VERIFY_EMAIL_TOKEN_CONFIRM_LINK_LOCAL
     : process.env.VERIFY_EMAIL_TOKEN_CONFIRM_LINK_PROD;
 
+  const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
+
   const confirmLink = `${baseConfirmLink}?token=${token}`;
 
   await resend.emails
     .send({
-      from: "onboarding@resend.dev",
+      from: fromEmail,
       to: email,
       subject: "Confirm your email",
       html: `
