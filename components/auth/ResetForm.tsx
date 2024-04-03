@@ -12,6 +12,7 @@ import { FormError } from '../FormError'
 import { FormSuccess } from '../FormSuccess'
 import { login } from '@/actions/login'
 import { CardWrapper } from './CardWrapper'
+import { reset } from '@/actions/reset'
 
 export const ResetForm = () => {
     const [isPending, startTransition] = useTransition()
@@ -29,18 +30,16 @@ export const ResetForm = () => {
         setError("")
         setSuccess("")
 
-        // startTransition(() => {
-        //     login(values)
-        //         .then((data) => {
-        //             if (data) {
-        //                 setError(data?.error)
-        //                 setSuccess(data?.success)
-        //             }
+        startTransition(() => {
+            reset(values)
+                .then((data) => {
+                    if (data) {
+                        setError(data?.error)
+                        setSuccess(data?.success)
+                    }
 
-        //         })
-        // })
-        // router.push("/dashboard")
-        console.log("VALUES  =>", values)
+                })
+        })
     }
 
 
