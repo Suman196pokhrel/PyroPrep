@@ -18,6 +18,7 @@ import { NewPasswordSchema } from '@/schemas';
 import { CardWrapper } from './CardWrapper';
 import { FormError } from '../FormError';
 import { FormSuccess } from '../FormSuccess';
+import { newPassword } from '@/actions/new-password';
 
 
 
@@ -37,15 +38,18 @@ export const NewPasswordForm = () => {
         },
     });
 
-    const onSubmit = useCallback(() => {
+    const onSubmit = (values: z.infer<typeof NewPasswordSchema>) => {
+        setError("")
+        setSuccess("")
 
-
-        console.log("VALUES =>", token)
-    }, [token, success, error]);
-
-
-
-
+        startTransition(() => {
+            newPassword(values, token)
+                .then((data) => {
+                    setError(data?.error)
+                    setSuccess(data?.success)
+                })
+        })
+    }
 
 
 
@@ -73,6 +77,7 @@ export const NewPasswordForm = () => {
                                             className='h-16'
                                             type='password'
                                             placeholder='******'
+                                            disabled={isPending}
                                             {...field}
                                         />
                                     </FormControl>
@@ -90,6 +95,7 @@ export const NewPasswordForm = () => {
                     <Button
                         type='submit'
                         variant={"pyroPrimary"}
+                        disabled={isPending}
                         className='w-full  h-14 text-lg xl:h-16 xl:text-xl'
                     >
                         Reset password
