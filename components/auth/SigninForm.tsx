@@ -12,6 +12,7 @@ import { FormError } from '../FormError'
 import { FormSuccess } from '../FormSuccess'
 import { login } from '@/actions/login'
 import { useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 
 
 
@@ -89,6 +90,11 @@ const SigninForm = () => {
 
                                     />
                                 </FormControl>
+                                <Button variant={"ghost"} asChild className='px-0 font-normal text-base text-green-700'>
+                                    <Link href={"/reset"}>
+                                        Forgot password ?
+                                    </Link>
+                                </Button>
                                 <FormMessage />
                             </FormItem>
                         )}
