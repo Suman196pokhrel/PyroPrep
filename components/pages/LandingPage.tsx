@@ -22,7 +22,7 @@ const LandingPage = () => {
                     🔐 Auth
                 </h1>
                 <p className='text-white text-lg'>
-                    A simple authentication service.
+                    Landing page coming soon.
                 </p>
                 <div>
                     <LoginButton>
