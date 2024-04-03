@@ -29,13 +29,15 @@ export const sendVerificationEmail = async (email: string, token: string) => {
 
 export const sendPasswordResetEmail = async (email: string, token: string) => {
   const isDevelopment = process.env.NODE_ENV === "development";
-  const baseConfirmLink = isDevelopment
-    ? process.env.VERIFY_EMAIL_TOKEN_CONFIRM_LINK_LOCAL
-    : process.env.VERIFY_EMAIL_TOKEN_CONFIRM_LINK_PROD;
+  const baseResetLink = isDevelopment
+    ? process.env.PASSWORD_RESET_TOKEN_CONFIRM_LINK_LOCAL
+    : process.env.PASSWORD_RESET_TOKEN_CONFIRM_LINK_PROD;
 
-  const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
+  const fromEmail = isDevelopment
+    ? process.env.FROM_EMAIL_LOCAL || "onboarding@resend.dev"
+    : process.env.FROM_EMAIL_PROD || "onboarding@resend.dev";
 
-  const confirmLink = `${baseConfirmLink}?token=${token}`;
+  const resetLink = `${baseResetLink}?token=${token}`;
 
   await resend.emails
     .send({
@@ -44,7 +46,7 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
       subject: "Reset you account password",
       html: `
     <p>
-    Click on on the <a href="${confirmLink}">Link</a> to create new password for your pyroprep account
+    Click on on the <a href="${resetLink}">Link</a> to create new password for your pyroprep account
     </P>
     `,
     })
