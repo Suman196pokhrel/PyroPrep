@@ -1,8 +1,9 @@
+import { ResetForm } from '@/components/auth/ResetForm'
 import React from 'react'
 
 const ResetPassword = () => {
     return (
-        <div>ResetPassword</div>
+        <ResetForm />
     )
 }
 
