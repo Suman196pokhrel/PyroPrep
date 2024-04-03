@@ -64,7 +64,7 @@ model VerificationToken {
 }
 
 
-model PasswordToken {
+model PasswordResetToken {
   id String @id @default(cuid())
   email String
   token String @unique
