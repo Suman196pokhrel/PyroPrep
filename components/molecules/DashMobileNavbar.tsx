@@ -2,7 +2,9 @@ import React from 'react'
 
 const DashMobileNavbar = () => {
     return (
-        <div>DashMobileNavbar</div>
+        <nav className='flex flex-col lg:hidden'>
+            DashMobileNavbar
+        </nav>
     )
 }
 

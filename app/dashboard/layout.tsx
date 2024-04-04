@@ -3,7 +3,7 @@ import DashCarousel from '@/components/molecules/DashCarousel'
 import DashNavbar from '@/components/molecules/DashNavbar'
 import React from 'react'
 import DashMobileNavbar from '@/components/molecules/DashMobileNavbar'
-import AuthGuard from '@/lib/AuthGuard'
+import { SessionProvider } from 'next-auth/react'
 
 type DashboardProps = {
     children: React.ReactNode
