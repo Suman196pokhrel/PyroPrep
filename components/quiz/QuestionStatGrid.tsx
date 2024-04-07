@@ -1,5 +1,6 @@
 import { Clock } from 'lucide-react'
 import React from 'react'
+import { Question } from './QuizCard'
 
 
 function generateDummyArray(n: number) {
@@ -10,8 +11,14 @@ function generateDummyArray(n: number) {
     return array
 }
 
+interface QuestionStatGridProps {
+    data: Question[]
+}
 
-export const QuestionStatGrid = () => {
+
+export const QuestionStatGrid = (
+    { data }: QuestionStatGridProps
+) => {
 
     const dummyArray = generateDummyArray(100)
 
@@ -22,13 +29,13 @@ export const QuestionStatGrid = () => {
 
 
             {/* GRID CONTAINER  */}
-            <div className='grid grid-cols-5  w-full gap-3 mt-5 h-[500px] overflow-x-hidden overflow-y-auto'>
-                {dummyArray.map((item, index) => (
-                    <p key={index} className='border-2 border-green-500 text-green-600 
-                    cursor-pointer hover:bg-green-600 hover:text-white
-                    rounded-md w-10 h-10 flex items-center justify-center 
+            <div className='grid grid-cols-5 w-full  gap-3 mt-5 max-h-[300px] overflow-x-hidden overflow-y-auto p-2 border-2'>
+                {data.map((question, index) => (
+                    <p key={index} className='border-2 border-gray-300 text-gray-600 
+                    cursor-pointer hover:bg-green-600 hover:border-none hover:text-white
+                    rounded-md w-8 h-8 flex items-center justify-center text-sm
                     transition-all ease-linear'>
-                        {item}
+                        {question.id}
                     </p>
                 ))}
             </div>
