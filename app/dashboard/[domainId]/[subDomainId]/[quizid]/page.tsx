@@ -1,6 +1,7 @@
 import { Button } from '@/components/atoms/button'
 import { QuestionStatGrid } from '@/components/quiz/QuestionStatGrid'
 import { QuizCard } from '@/components/quiz/QuizCard'
+import { Clock } from 'lucide-react'
 import React from 'react'
 
 interface IndieQuizProps {
@@ -34,7 +35,14 @@ const IndieQuiz = (
 
 
             {/* RIGHT  */}
-            <div className='w-2/12 border-l-2 pl-4'>
+            <div className='w-2/12 border-l-2 pl-4 flex flex-col gap-10'>
+                {/* TIMER  */}
+                <div className='flex items-center justify-start gap-2'>
+
+                    <Clock />
+                    <p className='text-lg'>12:00</p>
+                </div>
+
                 <QuestionStatGrid />
             </div>
         </section>
