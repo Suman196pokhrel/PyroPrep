@@ -39,10 +39,10 @@ const navItems = [
         title: "Compete",
         link: "/dashboard/compete"
     },
-    {
-        title: "Leaderboard",
-        link: "/dashboard/leaderboard"
-    },
+    // {
+    //     title: "Leaderboard",
+    //     link: "/dashboard/leaderboard"
+    // },
 ]
 
 

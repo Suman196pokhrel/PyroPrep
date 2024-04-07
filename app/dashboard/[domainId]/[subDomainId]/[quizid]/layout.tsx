@@ -16,7 +16,7 @@ const IndiQuizLayout = ({
     params,
 }: IndiQuizLayoutProps) => {
     return (
-        <div className='border-2 border-red-600 w-full min-h-screen'>
+        <div className='border-2 border-red-600  w-full'>
             <h2>Inside indi quiz layout</h2>
             <p>{params.quizid}</p>
             <div>
