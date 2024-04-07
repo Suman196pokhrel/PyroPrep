@@ -28,12 +28,6 @@ const DashboardLayout = (
 
             <section className='flex flex-col items-center mt-10 gap-10 w-5/6 '>
 
-                {/* HERO SECTION  */}
-                <div className='gap-5 hidden xl:flex  items-center'>
-                    <DashBanner />
-                    <DashCarousel />
-
-                </div>
 
                 {/* CONTENTS  */}
                 {children}
