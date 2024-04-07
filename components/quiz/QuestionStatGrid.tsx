@@ -1,6 +1,9 @@
+"use client"
 import { Clock } from 'lucide-react'
 import React from 'react'
 import { Question } from './QuizCard'
+import { CarouselApi } from '../atoms/carousel'
+import { Button } from '../atoms/button'
 
 
 function generateDummyArray(n: number) {
@@ -13,11 +16,13 @@ function generateDummyArray(n: number) {
 
 interface QuestionStatGridProps {
     data: Question[]
+    api: CarouselApi
+
 }
 
 
 export const QuestionStatGrid = (
-    { data }: QuestionStatGridProps
+    { data, api }: QuestionStatGridProps
 ) => {
 
     const dummyArray = generateDummyArray(100)
@@ -31,12 +36,13 @@ export const QuestionStatGrid = (
             {/* GRID CONTAINER  */}
             <div className='grid grid-cols-5 w-full  gap-3 mt-5 max-h-[300px] overflow-x-hidden overflow-y-auto p-2 border-2'>
                 {data.map((question, index) => (
-                    <p key={index} className='border-2 border-gray-300 text-gray-600 
+                    <Button variant={"outline"} key={index}
+                        onClick={() => api?.scrollTo(index)}
+                        className='border-2 border-gray-300 text-gray-600 
                     cursor-pointer hover:bg-green-600 hover:border-none hover:text-white
-                    rounded-md w-8 h-8 flex items-center justify-center text-sm
-                    transition-all ease-linear'>
+                    rounded-md '>
                         {question.id}
-                    </p>
+                    </Button>
                 ))}
             </div>
         </div>

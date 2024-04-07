@@ -40,6 +40,9 @@ export const QuizCards = ({
     const [current, setCurrent] = React.useState(0)
     const [count, setCount] = React.useState(0)
 
+
+
+    // TO UPDATE THE SLIDE COUNT 
     React.useEffect(() => {
         if (!api) {
             return
@@ -94,7 +97,6 @@ export const QuizCards = ({
             </Carousel>
             <div className="py-2 text-center text-sm text-muted-foreground">
                 Slide {current} of {count}
-                <Button onClick={() => api?.scrollTo(5 - 1)}>Slide to 5</Button>
             </div>
         </>
     )
