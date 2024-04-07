@@ -16,13 +16,13 @@ const IndiQuizLayout = ({
     params,
 }: IndiQuizLayoutProps) => {
     return (
-        <div className='border-2 border-red-600  w-full'>
-            <h2>Inside indi quiz layout</h2>
-            <p>{params.quizid}</p>
-            <div>
+        <main className=' w-full'>
+            <h2 className='text-[#3d4e61] font-bold text-3xl'>Set {params.quizid}</h2>
+
+            <section className='w-full'>
                 {children}
-            </div>
-        </div>
+            </section>
+        </main>
     )
 }
 
