@@ -20,6 +20,8 @@ const buttonVariants = cva(
                 ghost: "hover:bg-accent hover:text-accent-foreground",
                 link: "text-primary underline-offset-4 hover:underline",
                 pyroPrimary: "bg-green-600 text-primary-foreground hover:bg-green-600/90 shadow transition-all ease-linear",
+                pyroPrimaryOutline: "border border-green-600 text-green-600 bg-background shadow-sm hover:bg-accent hover:text-gree-700  transition-all ease-linear",
+
             },
             size: {
                 default: "h-9 px-4 py-2",
