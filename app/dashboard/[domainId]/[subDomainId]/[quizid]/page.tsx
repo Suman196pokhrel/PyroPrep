@@ -1,4 +1,5 @@
 import { Button } from '@/components/atoms/button'
+import { QuestionStatGrid } from '@/components/quiz/QuestionStatGrid'
 import { QuizCard } from '@/components/quiz/QuizCard'
 import React from 'react'
 
@@ -33,8 +34,8 @@ const IndieQuiz = (
 
 
             {/* RIGHT  */}
-            <div className='border-2 border-yellow-400 w-3/12'>
-                RIGHT
+            <div className='w-2/12 border-l-2 pl-4'>
+                <QuestionStatGrid />
             </div>
         </section>
     )
