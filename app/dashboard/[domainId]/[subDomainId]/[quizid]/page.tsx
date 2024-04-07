@@ -1,6 +1,7 @@
 "use client"
 import { mockQuizData } from '@/actions/quiz'
 import { Button } from '@/components/atoms/button'
+import { CarouselApi } from '@/components/atoms/carousel'
 import { QuestionStatGrid } from '@/components/quiz/QuestionStatGrid'
 import { Question, QuizCards } from '@/components/quiz/QuizCard'
 import { Clock } from 'lucide-react'
@@ -16,11 +17,11 @@ const IndieQuiz = (
     }: IndieQuizProps
 ) => {
 
+    const [api, setApi] = React.useState<CarouselApi>()
 
     const [questions, setQuestions] = useState<Question[] | undefined>(undefined)
     const fetchQuestions = async () => {
         const response = await mockQuizData()
-        console.log(response)
         setQuestions(response.data)
     }
 
@@ -36,18 +37,12 @@ const IndieQuiz = (
                 {questions && (
                     <QuizCards
                         data={questions}
+                        api={api}
+                        setApi={() => setApi}
                     />
                 )}
 
-                {/* CONTROLS  */}
-                {/* <div className='flex items-center justify-center gap-36 w-full'>
-                    <Button variant={"pyroPrimaryOutline"} className='p-7 text-base'>
-                        Previous
-                    </Button>
-                    <Button variant={"pyroPrimaryOutline"} className='p-7 text-base'>
-                        Next
-                    </Button>
-                </div> */}
+
             </div>
 
 
