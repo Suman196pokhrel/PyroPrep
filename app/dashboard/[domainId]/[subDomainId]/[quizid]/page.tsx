@@ -13,7 +13,7 @@ const IndieQuiz = (
     }: IndieQuizProps
 ) => {
     return (
-        <section className='flex items-start gap-20 justify-between  mt-5'>
+        <section className='flex items-start gap-10 justify-between  mt-5'>
             {/* LEFT  */}
             <div className='w-9/12 flex flex-col gap-5'>
                 <QuizCard
