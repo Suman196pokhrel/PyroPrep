@@ -44,6 +44,13 @@ const IndieQuiz = (
                 </div>
 
                 <QuestionStatGrid />
+
+                {/* CONTROL GROUP  */}
+                <div className='flex flex-col gap-5'>
+                    <Button variant={"pyroPrimary"} className='py-6 text-base'>Submit </Button>
+                    <Button variant={"destructive"} className='py-6 text-base bg-red-500'>Cancel </Button>
+                </div>
+
             </div>
         </section>
     )
