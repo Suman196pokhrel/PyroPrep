@@ -1,3 +1,4 @@
+import { QuizCard } from '@/components/quiz/QuizCard'
 import React from 'react'
 
 interface IndieQuizProps {
@@ -10,11 +11,11 @@ const IndieQuiz = (
     }: IndieQuizProps
 ) => {
     return (
-        <section className='flex items-center gap-20 justify-between border-2 border-red-400'>
+        <section className='flex items-start gap-20 justify-between  mt-5'>
             {/* LEFT  */}
-            <div className='border-2 border-blue-400 w-9/12 '>
-                LEFT
-            </div>
+            <QuizCard
+                data={{ id: "1", title: "Which is the best linux distribution for web developers?", options: ["Ubuntu", "Arch Linux", "Debian", "Pop Os"] }}
+            />
 
 
 
