@@ -20,7 +20,7 @@ const IndieQuiz = (
                 />
 
                 {/* CONTROLS  */}
-                <div className='flex items-center justify-between px-5 w-full'>
+                <div className='flex items-center justify-center gap-36 w-full'>
                     <Button variant={"pyroPrimaryOutline"} className='p-7 text-base'>
                         Previous
                     </Button>
