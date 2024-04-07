@@ -33,15 +33,15 @@ const navItems = [
     },
     {
         title: "Resources",
-        link: "/resources"
+        link: "/dashboard/resources"
     },
     {
         title: "Compete",
-        link: "/compete"
+        link: "/dashboard/compete"
     },
     {
         title: "Leaderboard",
-        link: "/leaderboard"
+        link: "/dashboard/leaderboard"
     },
 ]
 
