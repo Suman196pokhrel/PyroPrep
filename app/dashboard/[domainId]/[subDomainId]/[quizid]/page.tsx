@@ -38,7 +38,7 @@ const IndieQuiz = (
                     <QuizCards
                         data={questions}
                         api={api}
-                        setApi={() => setApi}
+                        setApi={setApi}
                     />
                 )}
 

@@ -14,7 +14,7 @@ import {
 
 } from '../atoms/carousel'
 import { Button } from '../atoms/button'
-import { UseEmblaCarouselType } from 'embla-carousel-react'
+import { type UseEmblaCarouselType } from 'embla-carousel-react'
 
 
 export interface Question {
@@ -27,7 +27,8 @@ export interface Question {
 interface QuizCardProps {
     data: Question[]
     api: CarouselApi
-    setApi: React.Dispatch<React.SetStateAction<UseEmblaCarouselType | undefined>>
+    //@ts-ignore
+    setApi: ((api: EmblaCarouselType | undefined) => void) | undefined
 
 }
 
@@ -45,8 +46,10 @@ export const QuizCards = ({
     // TO UPDATE THE SLIDE COUNT 
     React.useEffect(() => {
         if (!api) {
+            console.log("NO API FOUND")
             return
         }
+
 
         setCount(api.scrollSnapList().length)
         setCurrent(api.selectedScrollSnap() + 1)
@@ -63,7 +66,7 @@ export const QuizCards = ({
             <Carousel
                 orientation="horizontal"
                 className='w-full'
-                setApi={() => setApi}
+                setApi={setApi}
                 opts={{
                     align: "start",
                     loop: true
