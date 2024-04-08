@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# QuizApp 📚
 
-## Getting Started
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Under%20Development-yellow)](https://pyroprep.vercel.app/)
 
-First, run the development server:
+QuizApp is a comprehensive web application designed to assist Nepalese students in preparing for competitive exams such as engineering licenses, medical examinations, GRE, and SATs. With a user-friendly interface and a wide range of features, QuizApp aims to streamline the study process and enhance learning outcomes for students.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features 🚀
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Exam Preparation:** QuizApp provides a platform for students to practice for various competitive exams through interactive quizzes, simulated exams, and study materials.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Customizable Learning:** Tailored study plans and personalized recommendations help students focus on their weak areas and track their progress over time.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Rich Content Library:** Access a vast repository of study materials, including practice questions, past papers, and exam tips, curated specifically for Nepalese students.
 
-## Learn More
+- **Real-time Feedback:** Instant feedback and performance analysis after each quiz enable students to identify strengths and weaknesses, facilitating targeted improvement.
 
-To learn more about Next.js, take a look at the following resources:
+- **Community Engagement:** Engage with peers, ask questions, and share insights through community forums and discussion groups integrated within the platform.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used 🛠️
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Frontend:** Next.js, React, Tailwind CSS, Framer Motion, Radix UI, Embla Carousel, React Icons, React Hook Form, Zustand, and more. 🌟
 
-## Deploy on Vercel
+- **Backend:** Prisma, Supabase, Next.js API routes. 💻
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Authentication:** NextAuth.js for seamless authentication and authorization. 🔒
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Data Management:** Prisma ORM for database management, Zod for schema validation. 🗄️
+
+## Getting Started 🏁
+
+To get started with QuizApp, follow these simple steps:
+
+1. Clone this repository to your local machine.
+2. Install dependencies using `npm install`.
+3. Run the development server using `npm run dev`.
+4. Access the application at `http://localhost:3000` in your web browser.
+
+## Contributing 🤝
+
+Contributions are welcome and encouraged! Whether it's fixing a bug, adding a feature, or improving documentation, feel free to contribute to the project.
+
+## License 📝
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+🚀 Happy Learning with QuizApp! 📚
