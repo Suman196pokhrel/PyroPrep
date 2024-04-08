@@ -11,6 +11,10 @@ interface IndieQuizProps {
     params: { quizid: string }
 }
 
+export interface QuestionState {
+    [questionId: string]: string | null
+}
+
 const IndieQuiz = (
     {
         params
@@ -18,8 +22,18 @@ const IndieQuiz = (
 ) => {
 
     const [api, setApi] = React.useState<CarouselApi>()
-
+    const [quizFormState, setQuizFormState] = useState<QuestionState>({})
     const [questions, setQuestions] = useState<Question[] | undefined>(undefined)
+
+
+    const handleOptionSelect = (questionId: string, selectedOption: string) => {
+        setQuizFormState((prevState) => ({
+            ...prevState,
+            [questionId]: selectedOption,
+        }))
+    }
+
+
     const fetchQuestions = async () => {
         const response = await mockQuizData()
         setQuestions(response.data)
@@ -30,15 +44,21 @@ const IndieQuiz = (
     }, [])
 
 
+    useEffect(() => {
+        console.log(quizFormState)
+    }, [quizFormState])
+
+
     return (
         <section className='flex items-start gap-10 justify-between  mt-5'>
-            {/* LEFT  */}
+            {/* QUIZ CARDS  */}
             <div className='w-9/12 flex flex-col gap-5'>
                 {questions && (
                     <QuizCards
                         data={questions}
                         api={api}
                         setApi={setApi}
+                        handleOptionSelect={handleOptionSelect}
                     />
                 )}
 
@@ -46,7 +66,7 @@ const IndieQuiz = (
 
 
 
-            {/* RIGHT  */}
+            {/* QUIZ STATUS GRID  */}
             <div className='w-2/12 border-l-2 pl-4 flex flex-col gap-10'>
                 {/* TIMER  */}
                 <div className='flex items-center justify-start gap-2'>
@@ -54,7 +74,7 @@ const IndieQuiz = (
                     <p className='text-lg'>12:00</p>
                 </div>
 
-                {questions && (<QuestionStatGrid data={questions} api={api} />)}
+                {questions && (<QuestionStatGrid data={questions} api={api} quizFormState={quizFormState} />)}
 
                 {/* CONTROL GROUP  */}
                 <div className='flex flex-col gap-5'>

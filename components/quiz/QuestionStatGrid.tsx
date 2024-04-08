@@ -4,6 +4,7 @@ import React from 'react'
 import { Question } from './QuizCard'
 import { CarouselApi } from '../atoms/carousel'
 import { Button } from '../atoms/button'
+import { QuestionState } from '@/app/dashboard/[domainId]/[subDomainId]/[quizid]/page'
 
 
 function generateDummyArray(n: number) {
@@ -17,12 +18,13 @@ function generateDummyArray(n: number) {
 interface QuestionStatGridProps {
     data: Question[]
     api: CarouselApi
+    quizFormState: QuestionState
 
 }
 
 
 export const QuestionStatGrid = (
-    { data, api }: QuestionStatGridProps
+    { data, api, quizFormState }: QuestionStatGridProps
 ) => {
 
     const dummyArray = generateDummyArray(100)
@@ -38,9 +40,8 @@ export const QuestionStatGrid = (
                 {data.map((question, index) => (
                     <Button variant={"outline"} key={index}
                         onClick={() => api?.scrollTo(index)}
-                        className='border-2 border-gray-300 text-gray-600 
-                    cursor-pointer hover:bg-green-600 hover:border-none hover:text-white
-                    rounded-md '>
+                        className={`border-2 border-gray-300 text-gray-600 
+                    cursor-pointer ${quizFormState[question.id] ? 'bg-green-600 text-white border-none' : ''}                    rounded-md `}>
                         {question.id}
                     </Button>
                 ))}
