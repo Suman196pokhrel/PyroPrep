@@ -76,7 +76,7 @@ const IndieQuiz = (
             <div className='w-2/12 border-l-2 pl-4 flex flex-col gap-10'>
                 {/* TIMER  */}
                 {quizTimer && (
-                    <QuizTimer quizTime={quizTimer} />
+                    <QuizTimer quizTime={quizTimer} setQuizTimer={setQuizTimer} />
                 )}
 
                 {questions && (<QuestionStatGrid data={questions} api={api} quizFormState={quizFormState} />)}
