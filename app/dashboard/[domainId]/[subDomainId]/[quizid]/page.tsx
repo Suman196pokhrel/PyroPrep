@@ -2,10 +2,12 @@
 import { mockQuizData } from '@/actions/quiz'
 import { Button } from '@/components/atoms/button'
 import { CarouselApi } from '@/components/atoms/carousel'
+import { AlertDialogWrapper } from '@/components/molecules/AlertDianlogWrapper'
 import { QuestionStatGrid } from '@/components/quiz/QuestionStatGrid'
 import { Question, QuizCards } from '@/components/quiz/QuizCard'
 import { QuizTimer } from '@/components/quiz/QuizTimer'
 import { Clock } from 'lucide-react'
+import { usePathname, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 
@@ -24,6 +26,8 @@ const IndieQuiz = (
     }: IndieQuizProps
 ) => {
 
+    const router = useRouter()
+    const pathname = usePathname()
     const [api, setApi] = React.useState<CarouselApi>()
     const [quizFormState, setQuizFormState] = useState<QuestionState>({})
     const [quizTimer, setQuizTimer] = useState<number>()
@@ -43,6 +47,12 @@ const IndieQuiz = (
         const response = await mockQuizData()
         setQuestions(response.quiz.data)
         setQuizTimer(response.quiz.time)
+    }
+
+
+    const submitQuiz = () => {
+        console.log("QUIZ SUBMITTED ", quizFormState)
+        router.push(pathname.substring(0, pathname.lastIndexOf("/")))
     }
 
     useEffect(() => {
@@ -83,8 +93,25 @@ const IndieQuiz = (
 
                 {/* CONTROL GROUP  */}
                 <div className='flex flex-col gap-5'>
-                    <Button variant={"pyroPrimary"} className='py-6 text-base'>Submit </Button>
-                    <Button variant={"destructive"} className='py-6 text-base bg-red-500'>Cancel </Button>
+                    <AlertDialogWrapper
+                        title='Are you sure?'
+                        content='This action will cancle the ongoing test and your current progress will not be saved. '
+                        onContinue={() => submitQuiz()}
+                        onCancel={() => console.log("Cancled")}
+
+                    >
+                        <Button variant={"pyroPrimary"} className='py-6 text-base'>Submit </Button>
+                    </AlertDialogWrapper>
+
+                    <AlertDialogWrapper
+                        title='Are you sure?'
+                        content='This action will cancle the ongoing test and your current progress will not be saved. '
+                        onContinue={() => router.push(pathname.substring(0, pathname.lastIndexOf("/")))}
+                        onCancel={() => console.log("Cancled")}
+
+                    >
+                        <Button variant={"destructive"} className='py-6 text-base bg-red-500'>Cancel </Button>
+                    </AlertDialogWrapper>
                 </div>
 
             </div>
