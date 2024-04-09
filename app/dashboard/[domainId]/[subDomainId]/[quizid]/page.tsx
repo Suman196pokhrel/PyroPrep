@@ -52,7 +52,7 @@ const IndieQuiz = (
 
     const submitQuiz = () => {
         console.log("QUIZ SUBMITTED ", quizFormState)
-        router.push(pathname.substring(0, pathname.lastIndexOf("/")))
+        router.replace("/dashboard/result")
     }
 
     useEffect(() => {
