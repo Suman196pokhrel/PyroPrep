@@ -24,7 +24,7 @@ const DashboardLayout = (
             <DashNavbar />
 
             {/* MOVILE- NAVBAR  */}
-            <DashMobileNavbar />
+            {/* <DashMobileNavbar /> */}
 
             <section className='flex flex-col items-center mt-10 gap-10 w-5/6 '>
 
