@@ -3,7 +3,7 @@
 export const mockQuizData = async () => {
   const quiz = {
     id: "12331XwzqwdSSDW",
-    time: 2700, // 45 min
+    time: 10, // 45 min
     data: [
       {
         id: "1",
