@@ -4,8 +4,11 @@ import { Button } from '@/components/atoms/button'
 import { CarouselApi } from '@/components/atoms/carousel'
 import { QuestionStatGrid } from '@/components/quiz/QuestionStatGrid'
 import { Question, QuizCards } from '@/components/quiz/QuizCard'
+import { QuizTimer } from '@/components/quiz/QuizTimer'
 import { Clock } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
+
+
 
 interface IndieQuizProps {
     params: { quizid: string }
@@ -23,7 +26,9 @@ const IndieQuiz = (
 
     const [api, setApi] = React.useState<CarouselApi>()
     const [quizFormState, setQuizFormState] = useState<QuestionState>({})
+    const [quizTimer, setQuizTimer] = useState<number>()
     const [questions, setQuestions] = useState<Question[] | undefined>(undefined)
+
 
 
     const handleOptionSelect = (questionId: string, selectedOption: string) => {
@@ -36,7 +41,8 @@ const IndieQuiz = (
 
     const fetchQuestions = async () => {
         const response = await mockQuizData()
-        setQuestions(response.data)
+        setQuestions(response.quiz.data)
+        setQuizTimer(response.quiz.time)
     }
 
     useEffect(() => {
@@ -69,10 +75,9 @@ const IndieQuiz = (
             {/* QUIZ STATUS GRID  */}
             <div className='w-2/12 border-l-2 pl-4 flex flex-col gap-10'>
                 {/* TIMER  */}
-                <div className='flex items-center justify-start gap-2'>
-                    <Clock />
-                    <p className='text-lg'>12:00</p>
-                </div>
+                {quizTimer && (
+                    <QuizTimer quizTime={quizTimer} />
+                )}
 
                 {questions && (<QuestionStatGrid data={questions} api={api} quizFormState={quizFormState} />)}
 
