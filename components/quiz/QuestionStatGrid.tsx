@@ -36,7 +36,7 @@ export const QuestionStatGrid = (
 
 
             {/* GRID CONTAINER  */}
-            <div className='grid grid-cols-5 w-full  gap-3 mt-5 max-h-[300px] overflow-x-hidden overflow-y-auto p-2 border-2'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 w-full  gap-3 mt-5 max-h-[300px] overflow-x-hidden overflow-y-auto p-2 border-2'>
                 {data.map((question, index) => (
                     <Button variant={"outline"} key={index}
                         onClick={() => api?.scrollTo(index)}

@@ -49,8 +49,8 @@ export const QuizTimer = ({ quizTime }: QuizTimerProps) => {
 
     return (
         <div className='flex items-center justify-start gap-2'>
-            <Clock className={` ${timeLeft < 60 ? 'text-red-600' : ''}`} />
-            <p className={`text-lg ${timeLeft < 60 ? 'text-red-600 font-semibold' : ''}`}>
+            <Clock className={` ${timeLeft < 60 ? 'text-red-600' : 'text-green-600'}`} />
+            <p className={`text-lg ${timeLeft < 60 ? 'text-red-600 font-semibold' : 'text-green-600'}`}>
                 {formatTime(timeLeft)}
             </p>
         </div>
