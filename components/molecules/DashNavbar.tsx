@@ -22,6 +22,7 @@ import {
 import { Button } from '../atoms/button';
 import { signOut } from 'next-auth/react';
 import { useSessionStore } from '@/lib/zustand/store';
+import { LogOutIcon } from 'lucide-react';
 
 
 
@@ -120,10 +121,8 @@ const DashNavbar = () => {
                         <DropdownMenuItem>Support</DropdownMenuItem>
                         <DropdownMenuItem disabled>API</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                            <Button variant={"ghost"} onClick={handleLogout}>
-                                Log out
-                            </Button>
+                        <DropdownMenuItem onClick={handleLogout} className=' cursor-pointer font-semibold'>
+                            Log out
                         </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
