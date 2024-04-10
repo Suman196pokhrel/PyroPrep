@@ -41,7 +41,7 @@ export const QuestionStatGrid = (
                     <Button variant={"outline"} key={index}
                         onClick={() => api?.scrollTo(index)}
                         className={`border-2 border-gray-300 text-gray-600 
-                    cursor-pointer ${quizFormState[question.id] ? 'bg-green-600 text-white border-none' : ''}                    rounded-md `}>
+                    cursor-pointer ${quizFormState[question.id] ? 'bg-green-600 text-white border-none hover:bg-green-600 hover:text-white' : ''}                    rounded-md `}>
                         {question.id}
                     </Button>
                 ))}
