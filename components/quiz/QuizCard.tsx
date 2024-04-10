@@ -82,16 +82,18 @@ export const QuizCards = ({
                             <div className='flex  flex-col space-y-10 p-5 w-full h-[500px] rounded-lg drop-shadow-xl bg-white'>
                                 <h2 className=' font-bold text-xl text-green-800'><span>{question.id} . </span>{question.title}</h2>
                                 <fieldset className=''>
-                                    <RadioGroup onValueChange={(value) => handleOptionSelect(question.id, value)}>
+                                    <RadioGroup
+                                        onValueChange={(value) => handleOptionSelect(question.id, value)}
+                                    >
                                         {question.options.map((item, index) => (
-                                            <div key={index} className='flex group items-center space-x-3 my-2 cursor-pointer text-green-800 p-5 rounded-md'>
+                                            <div key={index} className='flex group items-center space-x-3 my-2 cursor-pointer text-green-800 p-5 rounded-md '>
                                                 <RadioGroupItem
                                                     value={item}
                                                     id={index.toString()}
                                                     className='text-green-600'
 
                                                 />
-                                                <Label className='cursor-pointer text-base font-semibold ' htmlFor={index.toString()}>{item}</Label>
+                                                <Label className='cursor-pointer text-base font-semibold w-full transition-all' htmlFor={index.toString()}>{item}</Label>
                                             </div>
                                         ))}
 
