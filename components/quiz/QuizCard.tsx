@@ -89,11 +89,11 @@ export const QuizCards = ({
                                             <div key={index} className='flex group items-center space-x-3 my-2 cursor-pointer text-green-800 p-5 rounded-md '>
                                                 <RadioGroupItem
                                                     value={item}
-                                                    id={index.toString()}
+                                                    id={item}
                                                     className='text-green-600'
 
                                                 />
-                                                <Label className='cursor-pointer text-base font-semibold w-full transition-all' htmlFor={index.toString()}>{item}</Label>
+                                                <Label className='cursor-pointer text-base font-semibold w-full transition-all' htmlFor={item}>{item}</Label>
                                             </div>
                                         ))}
 
