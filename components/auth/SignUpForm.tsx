@@ -11,6 +11,7 @@ import { RegisterSchema } from '@/schemas'
 import { register } from '@/actions/register'
 import { FormError } from '../FormError'
 import { FormSuccess } from '../FormSuccess'
+import { MoonLoader } from 'react-spinners'
 
 
 
@@ -117,11 +118,13 @@ const SignUpForm = () => {
                 <FormSuccess message={success} />
                 <Button
                     type='submit'
-                    className='w-full  h-14 text-lg xl:h-16 '
+                    className='w-full  h-14 text-lg xl:h-16 flex items-center gap-3 '
                     variant={"pyroPrimary"}
                     disabled={isPending}
 
                 >
+                    {isPending && <MoonLoader size={25} />}
+
                     Create an account
                 </Button>
 

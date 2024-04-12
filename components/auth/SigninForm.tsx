@@ -13,6 +13,7 @@ import { FormSuccess } from '../FormSuccess'
 import { login } from '@/actions/login'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { MoonLoader } from 'react-spinners'
 
 
 
@@ -106,8 +107,9 @@ const SigninForm = () => {
                     disabled={isPending}
                     type='submit'
                     variant={'pyroPrimary'}
-                    className='w-full  h-14 text-lg xl:h-16 '
+                    className='w-full  h-14 text-lg xl:h-16 flex items-center gap-3 '
                 >
+                    {isPending && <MoonLoader size={25} />}
                     Login
                 </Button>
 
