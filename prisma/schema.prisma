@@ -75,62 +75,62 @@ model PasswordResetToken {
 model Domain {
   id        String      @id @default(cuid())
   name      String
-  Subdomain Subdomain[]
+  subdomains Subdomain[]
 }
 
 model Subdomain {
   id        String    @id @default(cuid())
   name      String
-  domain_id String
-  quizsets  Quizset[]
+  domainId String
+  quizSets  Quizset[]
 
-  domain Domain @relation(fields: [domain_id], references: [id])
+  domain Domain @relation(fields: [domainId], references: [id])
 }
 
 model Quizset {
   id           String     @id @default(cuid())
   name         String
-  subdomain_id String
-  subdomain    Subdomain  @relation(fields: [subdomain_id], references: [id])
+  subdomainId String
+  subdomain    Subdomain  @relation(fields: [subdomainId], references: [id])
   questions    Question[]
-  userquiz     UserQuiz[]
+  userQuizzes     UserQuiz[]
 }
 
 model Question {
   id         String       @id @default(cuid())
   text       String
-  quizset_id String
-  quizset    Quizset      @relation(fields: [quizset_id], references: [id])
+  quizSetId String
+  quizSet   Quizset      @relation(fields: [quizSetId], references: [id])
   answers    Answer[]
-  userAnswer UserAnswer[]
+  userAnswers UserAnswer[]
 }
 
 model Answer {
   id          String       @id @default(cuid())
   text        String
-  question_id String
-  is_correct  Boolean
-  question    Question     @relation(fields: [question_id], references: [id])
-  userAnswer  UserAnswer[]
+  questionId String
+  isCorrect  Boolean
+  question    Question     @relation(fields: [questionId], references: [id])
+  userAnswers  UserAnswer[]
 }
 
 model UserQuiz {
   id            String       @id @default(cuid())
-  user_id       String
-  quizset_id    String
-  quiz_duration String
+  userId       String
+  quizsetId    String
+  quizDuration String
   score         Int
-  user          User         @relation(fields: [user_id], references: [id])
-  quizset       Quizset      @relation(fields: [quizset_id], references: [id])
-  userAnswer    UserAnswer[]
+  user          User         @relation(fields: [userId], references: [id])
+  quizset       Quizset      @relation(fields: [quizsetId], references: [id])
+  userAnswers    UserAnswer[]
 }
 
 model UserAnswer {
   id          String   @id @default(cuid())
-  userquiz_id String
-  question_id String
-  answer_id   String
-  userquiz    UserQuiz @relation(fields: [userquiz_id], references: [id])
-  question    Question @relation(fields: [question_id], references: [id])
-  answer      Answer   @relation(fields: [answer_id], references: [id])
+  userQuizId String
+  questionId String
+  answerId   String
+  userQuiz    UserQuiz @relation(fields: [userQuizId], references: [id])
+  question    Question @relation(fields: [questionId], references: [id])
+  answer      Answer   @relation(fields: [answerId], references: [id])
 }
