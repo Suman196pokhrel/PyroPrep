@@ -49,7 +49,6 @@ model User {
   password      String?
   role          UserRole   @default(USER)
   accounts      Account[]
-  userQuiz      UserQuiz[]
 }
 
 model VerificationToken {
@@ -71,66 +70,3 @@ model PasswordResetToken {
 }
 
 // QUIZ MODELS ------------------------------------------------------------------------------------------------------------------------------------------------
-
-model Domain {
-  id        String      @id @default(cuid())
-  name      String
-  subdomains Subdomain[]
-}
-
-model Subdomain {
-  id        String    @id @default(cuid())
-  name      String
-  domainId String
-  quizSets  Quizset[]
-
-  domain Domain @relation(fields: [domainId], references: [id])
-}
-
-model Quizset {
-  id           String     @id @default(cuid())
-  name         String
-  subdomainId String
-  subdomain    Subdomain  @relation(fields: [subdomainId], references: [id])
-  questions    Question[]
-  userQuizzes     UserQuiz[]
-}
-
-model Question {
-  id         String       @id @default(cuid())
-  text       String
-  quizSetId String
-  quizSet   Quizset      @relation(fields: [quizSetId], references: [id])
-  answers    Answer[]
-  userAnswers UserAnswer[]
-}
-
-model Answer {
-  id          String       @id @default(cuid())
-  text        String
-  questionId String
-  isCorrect  Boolean
-  question    Question     @relation(fields: [questionId], references: [id])
-  userAnswers  UserAnswer[]
-}
-
-model UserQuiz {
-  id            String       @id @default(cuid())
-  userId       String
-  quizsetId    String
-  quizDuration String
-  score         Int
-  user          User         @relation(fields: [userId], references: [id])
-  quizset       Quizset      @relation(fields: [quizsetId], references: [id])
-  userAnswers    UserAnswer[]
-}
-
-model UserAnswer {
-  id          String   @id @default(cuid())
-  userQuizId String
-  questionId String
-  answerId   String
-  userQuiz    UserQuiz @relation(fields: [userQuizId], references: [id])
-  question    Question @relation(fields: [questionId], references: [id])
-  answer      Answer   @relation(fields: [answerId], references: [id])
-}
